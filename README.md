@@ -32,9 +32,13 @@ After adding the URL, return to the plugin list and search by name to install or
 
 | | |
 |---|---|
-| **版本 Version** | 1.2.1.0 |
+| **版本 Version** | **1.2.1.1** |
 | **源码 Source** | https://github.com/kyodaikokata/HeelsDesignLinker |
 | **游戏内命令** | `/hdl` · `/heelsdesign` |
+
+**本版更新 · This release (1.2.1.1)**  
+- 中文：规则与基准使用相同参数时跳过基准回退；设置界面 HelpMarker 提示；本地化更新。  
+- English: Skip baseline revert when a rule uses the same parameter; HelpMarker hints in settings; localization updates.
 
 **中文**  
 根据 **SimpleHeels** 的实时高度，自动联动 **Glamourer** 设计或 **Penumbra** mod 选项；每条规则还可选用 **Moodles** 状态/预设与 **Honorific** 称号。  
@@ -44,7 +48,7 @@ After adding the URL, return to the plugin list and search by name to install or
 Automatically applies **Glamourer** designs or **Penumbra** mod options when your **SimpleHeels** height matches a rule. Optional **Honorific** titles and **Moodles** statuses/presets per rule.  
 **Strongly recommended:** SimpleHeels, Glamourer, and Penumbra.
 
-功能说明、快速上手与更新日志见源码仓库 README：  
+功能说明、快速上手与完整更新日志见源码仓库 README：  
 Full documentation, quick start, and changelog: [HeelsDesignLinker README](https://github.com/kyodaikokata/HeelsDesignLinker#readme)
 
 ---
