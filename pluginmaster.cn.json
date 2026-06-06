@@ -22,9 +22,9 @@
                          "other"
                      ],
     "DalamudApiLevel":  15,
-    "AssemblyVersion":  "1.2.1.0",
-    "Changelog":  "1.2.1.0: Shorter login warmup; remove Glamourer projection wait; fix IconUrl; migrate to KKT-Catalog.",
-    "LastUpdate":  "1780777552",
+    "AssemblyVersion":  "1.2.1.1",
+    "Changelog":  "1.2.1.1: Baseline skip when rule uses same param; HelpMarker UI; localization updates.",
+    "LastUpdate":  "1780786693",
     "RepoUrl":  "https://github.com/kyodaikokata/HeelsDesignLinker",
     "DownloadLinkInstall":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/plugins/HeelsDesignLinker/latest-cn.zip",
     "DownloadLinkUpdate":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/plugins/HeelsDesignLinker/latest-cn.zip",
