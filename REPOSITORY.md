@@ -63,7 +63,8 @@ KKT-Catalog/                      合集分发仓（用户 Repo URL 指向这里
 | `dist/`（`cn/global/latest.zip`） | ✅ 临时 | ❌ | ❌ |
 | `bin/`、`obj/` | ✅ 本地 | ❌ gitignore | ❌ |
 | `pluginmaster.*.json`（单插件草稿/模板） | ✅ | 迁移期可 deprecated | ❌ |
-| `catalog.json` | ❌ | ❌ | ✅ |
+| `catalog.json`（本地，含路径） | ❌ | ❌ | ✅ gitignore |
+| `catalog.json.example` | ❌ | ❌ | ✅ |
 | `pluginmaster.cn.json` / `pluginmaster.global.json`（合集） | ❌ | ❌ | ✅ |
 | `plugins/<InternalName>/latest-cn.zip` | ❌ | ❌ 迁入后 | ✅ |
 | `plugins/<InternalName>/latest-global.zip` | ❌ | ❌ 迁入后 | ✅ |
@@ -132,7 +133,8 @@ KKT-Catalog/
 ├── LICENSE
 ├── README.md
 ├── REPOSITORY.md
-├── catalog.json                  # 插件注册表；release 脚本主配置
+├── catalog.json.example          # 插件注册表模板（提交）
+├── catalog.json                  # 本地配置（gitignore，含本机路径）
 ├── pluginmaster.cn.json          # 用户安装的国服 manifest
 ├── pluginmaster.global.json      # 用户安装的国际服 manifest
 ├── plugins/
@@ -224,18 +226,24 @@ KKT-Catalog/
 
 ---
 
-## 5. 插件注册表 `catalog.json`
+## 5. 插件注册表 `catalog.json` / `catalog.json.example`
 
-脚本应以 `catalog.json` 为配置入口，再生成或更新 `pluginmaster.*.json`。  
-避免在脚本中硬编码插件列表。
+脚本以 **本地** `catalog.json` 为配置入口（**不提交 Git**），再生成或更新 `pluginmaster.*.json`。  
+仓库内仅提交无本机路径的 `catalog.json.example`；首次克隆后：
 
-### 5.1 格式
+```powershell
+Copy-Item catalog.json.example catalog.json
+# 可选：在 catalog.json 中填写 catalogRoot、workInProgressPath
+```
+
+未填写 `workInProgressPath` 时，`publish-plugin.ps1` 会尝试同级 `Release/<PluginFolder>` 目录，或环境变量 `KKT_WIP_<InternalName>`。
+
+### 5.1 格式（`catalog.json.example`，可提交）
 
 ```json
 {
   "catalogRepo": "kyodaikokata/KKT-Catalog",
   "defaultBranch": "main",
-  "catalogRoot": "E:/work/DalamudProject/Release/KKT-Catalog",
   "plugins": [
     {
       "internalName": "HeelsDesignLinker",
@@ -261,8 +269,8 @@ KKT-Catalog/
 | `pluginFolder` | 是 | `plugins/`、`images/` 子目录名 |
 | `sourceRepo` | 是 | `owner/repo`，用于 `RepoUrl` 与文档 |
 | `sourceRepoUrl` | 是 | 完整 GitHub URL |
-| `catalogRoot` | 否 | 本机 KKT-Catalog 路径；`publish-release.ps1` 用于定位 `publish-plugin.ps1` |
-| `workInProgressPath` | 否 | 本地开发根目录，供 build 脚本定位源码（仅维护者机器） |
+| `catalogRoot` | 否 | **仅本地** `catalog.json`；本机 Catalog 路径 |
+| `workInProgressPath` | 否 | **仅本地** `catalog.json`；可省略，由脚本自动解析同级 Release 目录 |
 | `projectSubPath` | 否 | 相对 `workInProgressPath` 的 csproj 目录 |
 | `publishGlobal` | 否 | 默认 `true`；仅国服时设为 `false`，只发布 `latest-cn.zip` |
 | `enabled` | 否 | 默认 `true`；`false` 时从 manifest 中排除（下架保留目录） |
@@ -414,7 +422,7 @@ WorkInProgress/<Plugin>/scripts/publish-release.ps1
 建议每次 commit 仅包含该插件相关变更：
 
 ```
-catalog.json                                    # 若新增插件
+catalog.json                                    # 本地维护（不提交）；若新增插件请同步改 catalog.json.example
 pluginmaster.cn.json
 pluginmaster.global.json
 plugins/<PluginFolder>/latest-cn.zip
@@ -437,7 +445,7 @@ Release <InternalName> <AssemblyVersion>
 ### 9.1 纳入版本控制
 
 - 所有 `pluginmaster.*.json`
-- `catalog.json`
+- `catalog.json.example`
 - `plugins/**/latest-cn.zip`、`plugins/**/latest-global.zip`
 - `images/**/icon.png`
 - `scripts/`、`LICENSE`、`README.md`、`REPOSITORY.md`
@@ -553,7 +561,7 @@ param(
 | InternalName | 源码仓库 | CN | Global | 状态 |
 |--------------|----------|----|--------|------|
 | `HeelsDesignLinker` | [kyodaikokata/HeelsDesignLinker](https://github.com/kyodaikokata/HeelsDesignLinker) | 是 | 是 | 已迁入 Catalog |
-| `SoundMixer` | TBD | 是 | 待定 | 开发中 |
+| `SoundMixer` | [kyodaikokata/SoundMixer](https://github.com/kyodaikokata/SoundMixer) | 是 | 是 | 已迁入 Catalog |
 | `TerrainIK` | TBD | 是 | 待定 | 开发中 |
 
 > 脚本与 manifest 以 `catalog.json` 为准；上表仅供人类阅读，发版时同步更新。

@@ -51,6 +51,29 @@ Automatically applies **Glamourer** designs or **Penumbra** mod options when you
 功能说明、快速上手与完整更新日志见源码仓库 README：  
 Full documentation, quick start, and changelog: [HeelsDesignLinker README](https://github.com/kyodaikokata/HeelsDesignLinker#readme)
 
+### SoundMixer
+
+| | |
+|---|---|
+| **版本 Version** | **0.1.0.0** |
+| **源码 Source** | https://github.com/kyodaikokata/SoundMixer |
+| **游戏内命令** | `/soundmixer` · `/smix` |
+| **国服 CN** | ✅ |
+| **国际服 Global** | ✅ |
+
+**本版更新 · This release (0.1.0.0)**  
+- 中文：首发版本——按 SCD 路径调节音量、自定义分组与 Glob 规则、预设、实时监听、BGM/环境音支持，中英界面。  
+- English: Initial release — per-SCD-path volume mixing, custom groups, Glob patterns, presets, live monitor, BGM/ambient support, CN/EN UI.
+
+**中文**  
+按 **SCD 路径** 精细控制 FF14 音效音量。支持 **Glob** 分组、嵌套分组、**预设** 与 **实时监听**；可调节 BGM 与环境音，线性增益 0–200%（专家模式最高 350%）。
+
+**English**  
+Fine-grained FFXIV audio mixing by **SCD path**. **Glob** groups, nested groups, **presets**, and a **live monitor**; BGM and ambient support with 0–200% linear gain (Expert Mode up to 350%).
+
+功能说明与反馈指引见源码仓库 README：  
+Full documentation: [SoundMixer README](https://github.com/kyodaikokata/SoundMixer#readme)
+
 ---
 
 ## 反馈与支持 · Feedback & support
@@ -72,5 +95,5 @@ Distribution artifacts in this repo (manifests, release zips, icons) are under t
 
 ## 维护者 · Maintainers
 
-仓库目录约定、发版脚本与 `catalog.json` 说明见 [REPOSITORY.md](REPOSITORY.md)（面向开发者，非安装必需）。  
-For directory layout, release scripts, and `catalog.json`, see [REPOSITORY.md](REPOSITORY.md) (maintainer documentation).
+仓库目录约定、发版脚本与 `catalog.json.example` 说明见 [REPOSITORY.md](REPOSITORY.md)（面向开发者，非安装必需）。  
+For directory layout, release scripts, and `catalog.json.example`, see [REPOSITORY.md](REPOSITORY.md) (maintainer documentation).

@@ -24,11 +24,7 @@ try {
 
     $assemblyName = $plugin.assemblyName
     $pluginFolder = $plugin.pluginFolder
-    $wipRoot = $plugin.workInProgressPath
-
-    if (-not $wipRoot -or -not (Test-Path $wipRoot)) {
-        Exit-CatalogError 1 "workInProgressPath not found for '$InternalName': $wipRoot"
-    }
+    $wipRoot = Resolve-PluginWorkRoot -CatalogRoot $CatalogRoot -Plugin $plugin
 
     if (-not $DistDir) {
         $DistDir = Join-Path $wipRoot "dist"
@@ -151,7 +147,7 @@ try {
     Write-Host ""
     Write-Host "Next:"
     Write-Host "  cd `"$CatalogRoot`""
-    Write-Host "  git add catalog.json pluginmaster.cn.json pluginmaster.global.json plugins/$pluginFolder/*.zip images/$pluginFolder/icon.png"
+    Write-Host "  git add pluginmaster.cn.json pluginmaster.global.json plugins/$pluginFolder/*.zip images/$pluginFolder/icon.png"
     Write-Host "  git commit -m `"Release $InternalName $cnVersion`""
     Write-Host "  git push"
 }

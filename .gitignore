@@ -4,7 +4,7 @@
 # =============================================================================
 #
 # 【应提交到本仓库 — 不要加入 ignore】
-#   - catalog.json
+#   - catalog.json.example（模板；本地路径写在 catalog.json，不推送）
 #   - pluginmaster.cn.json / pluginmaster.global.json
 #   - plugins/<InternalName>/latest-cn.zip
 #   - plugins/<InternalName>/latest-global.zip
@@ -59,6 +59,9 @@ plugins/**
 images/**
 !images/**/
 !images/**/icon.png
+
+# --- 维护者本地配置（含本机路径，不推送） ---
+catalog.json
 
 # --- manifest：忽略草稿/备份；正式合集 manifest 不忽略 ---
 *.json.old

@@ -6,6 +6,10 @@ function Read-CatalogConfig {
 
     $path = Join-Path $CatalogRoot "catalog.json"
     if (-not (Test-Path $path)) {
+        $example = Join-Path $CatalogRoot "catalog.json.example"
+        if (Test-Path $example) {
+            throw "catalog.json not found: $path. Copy catalog.json.example to catalog.json and set local paths (catalog.json is not pushed to Git)."
+        }
         throw "catalog.json not found: $path"
     }
 
@@ -18,6 +22,38 @@ function Read-CatalogConfig {
     }
 
     return $catalog
+}
+
+function Resolve-PluginWorkRoot {
+    param(
+        [Parameter(Mandatory)]
+        [string]$CatalogRoot,
+        [Parameter(Mandatory)]
+        [object]$Plugin
+    )
+
+    if ($Plugin.workInProgressPath -and (Test-Path $Plugin.workInProgressPath)) {
+        return [System.IO.Path]::GetFullPath($Plugin.workInProgressPath)
+    }
+
+    $envName = "KKT_WIP_$($Plugin.internalName)"
+    $fromEnv = [Environment]::GetEnvironmentVariable($envName)
+    if ($fromEnv -and (Test-Path $fromEnv)) {
+        return [System.IO.Path]::GetFullPath($fromEnv)
+    }
+
+    $releaseParent = Split-Path $CatalogRoot -Parent
+    $candidates = @(
+        (Join-Path $releaseParent $Plugin.pluginFolder),
+        (Join-Path $releaseParent $Plugin.internalName)
+    )
+    foreach ($candidate in $candidates) {
+        if (Test-Path (Join-Path $candidate "pluginmaster.cn.json")) {
+            return [System.IO.Path]::GetFullPath($candidate)
+        }
+    }
+
+    throw "Could not resolve work root for '$($Plugin.internalName)'. Set workInProgressPath in catalog.json or env $envName."
 }
 
 function Get-CatalogPlugin {
