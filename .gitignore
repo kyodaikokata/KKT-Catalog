@@ -1,0 +1,93 @@
+# =============================================================================
+# KKT-Catalog .gitignore
+# 完整说明见 REPOSITORY.md §2（文件归属）、§9（Git 策略）
+# =============================================================================
+#
+# 【应提交到本仓库 — 不要加入 ignore】
+#   - catalog.json
+#   - pluginmaster.cn.json / pluginmaster.global.json
+#   - plugins/<InternalName>/latest-cn.zip
+#   - plugins/<InternalName>/latest-global.zip
+#   - images/<InternalName>/icon.png
+#   - scripts/**/*.ps1（release 脚本）
+#   - LICENSE, README.md, REPOSITORY.md, .gitattributes
+#
+# 【仅保留本地 — 本文件忽略】
+#   - 构建/发版中间产物（dist/, bin/, obj/, latest.zip 等）
+#   - 误拷入的插件源码（*.cs, *.csproj）
+#   - IDE / OS 临时文件
+#   - 非发行用途的 zip、dll、pdb
+#
+# 插件源码与 build-dual.ps1 在 WorkInProgress / 各插件独立仓库，不在此仓。
+# =============================================================================
+
+# --- 插件源码（本仓不应出现；防止 publish 脚本误同步） ---
+*.cs
+*.csproj
+*.sln
+packages.lock.json
+Directory.Build.props.user
+*.csproj.user
+
+# --- 构建与发版中间产物（仅本机） ---
+dist/
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+[Ll]og/
+x64/
+x86/
+*.deps.json
+
+# build 产出名；Catalog 正式文件为 latest-cn.zip / latest-global.zip
+**/latest.zip
+
+# 散落的程序集（zip 内除外；zip 作为整体提交）
+*.dll
+*.pdb
+
+# --- plugins/：默认忽略，仅放行正式发行 zip ---
+plugins/**
+!plugins/**/
+!plugins/**/latest-cn.zip
+!plugins/**/latest-global.zip
+
+# --- images/：默认忽略，仅放行 icon.png ---
+images/**
+!images/**/
+!images/**/icon.png
+
+# --- manifest：忽略草稿/备份；正式合集 manifest 不忽略 ---
+*.json.old
+pluginmaster.json
+
+# --- 脚本本地临时目录 ---
+scripts/dist/
+scripts/.cache/
+
+# --- IDE / 编辑器 ---
+.vs/
+.idea/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.DotSettings.user
+
+# --- NuGet（本仓通常无；防止误放） ---
+*.nupkg
+**/packages/*
+!**/packages/build/
+
+# --- Dalamud 本地引用 ---
+Dalamud/
+
+# --- 操作系统 ---
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store

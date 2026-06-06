@@ -1,0 +1,18 @@
+{
+  "catalogRepo": "kyodaikokata/KKT-Catalog",
+  "defaultBranch": "main",
+  "catalogRoot": "E:/work/DalamudProject/Release/KKT-Catalog",
+  "plugins": [
+    {
+      "internalName": "HeelsDesignLinker",
+      "assemblyName": "HeelsDesignLinker",
+      "pluginFolder": "HeelsDesignLinker",
+      "sourceRepo": "kyodaikokata/HeelsDesignLinker",
+      "sourceRepoUrl": "https://github.com/kyodaikokata/HeelsDesignLinker",
+      "workInProgressPath": "E:/work/DalamudProject/WorkInProgress/HeelsToggle",
+      "projectSubPath": "HeelsToggle",
+      "publishGlobal": true,
+      "enabled": true
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+[
+{
+    "Author":  "KKT",
+    "Name":  "Heels Design Linker",
+    "InternalName":  "HeelsDesignLinker",
+    "Punchline":  "Auto-switch Glamourer/Penumbra by SimpleHeels height, with optional Moodles / Honorific",
+    "Description":  "【国际 Global 构建】适用于 XIVLauncher 国际服。Automatically switches Glamourer designs or Penumbra mod settings based on SimpleHeels height detection, with optional Moodles and Honorific.",
+    "ApplicableVersion":  "any",
+    "Tags":  [
+                 "glamour",
+                 "simple-heels",
+                 "customization",
+                 "automation",
+                 "heels",
+                 "penumbra",
+                 "moodles",
+                 "honorific",
+                 "appearance"
+             ],
+    "CategoryTags":  [
+                         "utility",
+                         "other"
+                     ],
+    "DalamudApiLevel":  15,
+    "AssemblyVersion":  "1.2.1.0",
+    "Changelog":  "1.2.1.0: Shorter login warmup; remove Glamourer projection wait; fix IconUrl; migrate to KKT-Catalog.",
+    "LastUpdate":  "1780777552",
+    "RepoUrl":  "https://github.com/kyodaikokata/HeelsDesignLinker",
+    "DownloadLinkInstall":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/plugins/HeelsDesignLinker/latest-cn.zip",
+    "DownloadLinkUpdate":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/plugins/HeelsDesignLinker/latest-cn.zip",
+    "DownloadLinkTesting":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/plugins/HeelsDesignLinker/latest-cn.zip",
+    "IconUrl":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/images/HeelsDesignLinker/icon.png",
+    "LoadRequiredState":  0,
+    "LoadSync":  false,
+    "CanUnloadAsync":  true,
+    "LoadPriority":  -10,
+    "ImageUrls":  [
+
+                  ]
+}
+]
