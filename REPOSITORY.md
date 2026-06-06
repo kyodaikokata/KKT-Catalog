@@ -552,7 +552,7 @@ param(
 
 | InternalName | 源码仓库 | CN | Global | 状态 |
 |--------------|----------|----|--------|------|
-| `HeelsDesignLinker` | [kyodaikokata/HeelsDesignLinker](https://github.com/kyodaikokata/HeelsDesignLinker) | 是 | 是 | 待迁入 Catalog |
+| `HeelsDesignLinker` | [kyodaikokata/HeelsDesignLinker](https://github.com/kyodaikokata/HeelsDesignLinker) | 是 | 是 | 已迁入 Catalog |
 | `SoundMixer` | TBD | 是 | 待定 | 开发中 |
 | `TerrainIK` | TBD | 是 | 待定 | 开发中 |
 
