@@ -355,31 +355,20 @@ IconUrl                = {BASE}/images/{PluginFolder}/icon.png
 
 ### 7.1 内容
 
-zip 根目录 **扁平、无子路径**。默认插件 **恰好 3 个文件**：
+每个 zip **恰好 3 个文件**，根目录扁平、无子路径：
 
 ```
 {AssemblyName}.dll
 {AssemblyName}.pdb
 {AssemblyName}.json
 ```
-
-**带卫星程序集的插件**（如 SoundMixer 依赖 `DotNet.Glob`）允许 **4 个文件**，在对应插件的 `PublishHelpers.ps1` 中显式校验，例如：
-
-```
-{AssemblyName}.dll
-DotNet.Glob.dll
-{AssemblyName}.pdb
-{AssemblyName}.json
-```
-
-不使用 ILRepack 合并依赖时，卫星 DLL 必须与主 DLL 同目录打包。
 
 ### 7.2 禁止项
 
 - 嵌套目录或路径分隔符（`/`、`\`）
 - `*.deps.json`
 - 嵌套的 `latest.zip`
-- 除插件 `PublishHelpers.ps1` 允许列表外的任何条目
+- 除上述 3 个文件外的任何条目
 
 ### 7.3 Zip 内 manifest（`{AssemblyName}.json`）
 
@@ -512,8 +501,6 @@ param(
     [Parameter(Mandatory)]
     [string]$InternalName,
     [string]$CatalogRoot = "$PSScriptRoot\..",
-    [string]$WorkInProgressRoot,     # 推荐由 publish-release.ps1 传入
-    [string]$SourceRoot,           # WorkInProgressRoot 别名
     [string]$DistDir,              # 默认从 WIP 的 dist/ 读取
     [switch]$SkipGlobal,
     [switch]$WhatIf
@@ -551,7 +538,7 @@ param(
 3. 在 **KKT-Catalog** 的 `catalog.json` 追加条目。
 4. 在 WIP / 插件源码仓准备 `images/icon.png`；首次发版时由 release 脚本复制到 Catalog。
 5. 在 **WIP / 插件源码仓** `scripts/` 放置 `build-dual.ps1`、`PublishHelpers.ps1`（§2.4）；**不要**把 build 脚本放进 Catalog。
-6. 在 WIP / 插件源码仓运行 `publish-release.ps1`（内部调用 Catalog 的 `publish-plugin.ps1`）。
+6. 在 WIP 运行 `publish-release.ps1`（内部调用 Catalog 的 `publish-plugin.ps1`，待实现）。
 7. 验证 Catalog raw URL 可下载 zip 与 manifest。
 8. 更新 Catalog `README.md` 插件列表；插件源码仓 `README` 注明 Catalog 安装 URL。
 
@@ -590,25 +577,4 @@ param(
 
 ---
 
-## 15. 提交前检查（维护者）
-
-推送 KKT-Catalog 前确认：
-
-- [ ] `pluginmaster.cn.json` / `pluginmaster.global.json` 版本与 zip 内 `AssemblyVersion` 一致
-- [ ] `README.md` 插件表与 manifest 版本一致
-- [ ] **未** `git add catalog.json`（应已在 `.gitignore`）
-- [ ] 已提交 `catalog.json.example`（无本机路径）
-- [ ] 各插件 `plugins/<Name>/latest-*.zip` 与 `images/<Name>/icon.png` 已纳入本次 commit
-
-建议 commit 范围：
-
-```powershell
-git add README.md REPOSITORY.md .gitignore catalog.json.example `
-  pluginmaster.cn.json pluginmaster.global.json `
-  plugins/ images/ scripts/
-git rm --cached catalog.json   # 若曾被跟踪
-```
-
----
-
-*文档版本：与仓库初始化同步。后续若目录或脚本契约变更，请同步更新本节与 `catalog.json.example`。*
+*文档版本：与仓库初始化同步。后续若目录或脚本契约变更，请同步更新本节与 `catalog.json` 示例。*

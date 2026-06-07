@@ -4,8 +4,8 @@
 
 **Repository:** https://github.com/kyodaikokata/KKT-Catalog
 
-本仓库集中分发 KKT 开发的 Dalamud 插件。在 Dalamud 设置中添加 **一个** 自定义源 URL，即可安装与更新合集内的全部插件。  
-This repository hosts KKT’s Dalamud plugins in one place. Add **one** custom repo URL in Dalamud settings to install and update every plugin listed below.
+本仓库集中分发 KKT 开发的 Dalamud 插件——涵盖 **外观自动化**（按 SimpleHeels 高度或当前渲染装备匹配规则，联动 Glamourer / Penumbra 等）与 **音效调节** 等工具。在 Dalamud 设置中添加 **一个** 自定义源 URL，即可安装与更新合集内的全部插件。  
+This repository hosts KKT’s Dalamud plugins in one place: **appearance automation** (match rules by SimpleHeels height or rendered equipment, then drive Glamourer / Penumbra and more) and **audio tools**, among others. Add **one** custom repo URL in Dalamud settings to install and update every plugin listed below.
 
 ---
 
@@ -30,8 +30,8 @@ After adding the URL, return to the plugin list and search by name to install or
 
 | 插件 Plugin | 版本 Version | CN | Global | 源码 Source |
 |-------------|--------------|:--:|:------:|-------------|
-| Heels Design Linker | **1.2.1.3** | ✅ | ✅ | [HeelsDesignLinker](https://github.com/kyodaikokata/HeelsDesignLinker) |
-| SoundMixer | **0.2.0.0** | ✅ | ✅ | [SoundMixer](https://github.com/kyodaikokata/SoundMixer) |
+| Heels Design Linker | **1.3.0.0** | ✅ | ✅ | [HeelsDesignLinker](https://github.com/kyodaikokata/HeelsDesignLinker) |
+| SoundMixer | **0.2.1.0** | ✅ | ✅ | [SoundMixer](https://github.com/kyodaikokata/SoundMixer) |
 
 ---
 
@@ -41,16 +41,19 @@ After adding the URL, return to the plugin list and search by name to install or
 |---|---|
 | **游戏内命令** | `/hdl` · `/heelsdesign` |
 
-**本版更新 · This release (1.2.1.3)**  
-- 中文：界面本地化补全；Penumbra 临时应用、SoundMixer 联动与稳定性修复（详见游戏内更新日志）；开发者文档。  
-- English: UI localization complete; Penumbra temp apply, SoundMixer integration, and stability fixes (see in-game changelog); developer docs.
+> **不仅限于高跟鞋！** 除 SimpleHeels 高度外，还可根据 **当前渲染装备外观**（DrawObject）匹配规则；可组合高度与装备条件，自动执行 Glamourer、Penumbra、Moodles、Honorific、SoundMixer 等行动。  
+> **Not just for heels!** Match rules by **SimpleHeels height** and/or **rendered equipment** (DrawObject), then auto-apply Glamourer, Penumbra, Moodles, Honorific, or SoundMixer actions.
+
+**本版更新 · This release (1.3.0.0)**  
+- 中文：**装备外观规则**（DrawObject）、物品名搜索、状态栏与冲突提示；不再局限于高跟鞋场景。详见游戏内「更新履历」。  
+- English: **Equipment appearance rules** (DrawObject), item name search, status bar, and conflict hints — not just heels. See in-game changelog.
 
 **中文**  
-根据 **SimpleHeels** 的实时高度，自动联动 **Glamourer** 设计或 **Penumbra** mod 选项；每条规则还可选用 **Moodles** 状态/预设与 **Honorific** 称号。  
+在 **SimpleHeels 高度** 之外，还可按 **当前渲染装备**（如脚部是否为空、头部 ModelId、身体是否有装备等）触发规则，并自动应用 **Glamourer** 设计、**Penumbra** mod 选项，以及可选的 **Moodles**、**Honorific**、**SoundMixer**。  
 **强烈推荐：** SimpleHeels、Glamourer、Penumbra。
 
 **English**  
-Automatically applies **Glamourer** designs or **Penumbra** mod options when your **SimpleHeels** height matches a rule. Optional **Honorific** titles and **Moodles** statuses/presets per rule.  
+Beyond **SimpleHeels height**, rules can match **rendered equipment** (e.g. empty feet, specific head ModelId, body gear) and auto-apply **Glamourer**, **Penumbra**, and optional **Moodles**, **Honorific**, or **SoundMixer**.  
 **Strongly recommended:** SimpleHeels, Glamourer, and Penumbra.
 
 [HeelsDesignLinker README](https://github.com/kyodaikokata/HeelsDesignLinker#readme)
