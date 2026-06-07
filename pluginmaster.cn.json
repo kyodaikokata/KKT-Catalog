@@ -59,9 +59,9 @@
                          "sound"
                      ],
     "DalamudApiLevel":  15,
-    "AssemblyVersion":  "0.2.2.0",
+    "AssemblyVersion":  "0.2.2.1",
     "Changelog":  "0.2.1.2: Fix mount/dismount SetVolume hook crashes. See in-app changelog.",
-    "LastUpdate":  "1780864651",
+    "LastUpdate":  "1780864984",
     "RepoUrl":  "https://github.com/kyodaikokata/SoundMixer",
     "DownloadLinkInstall":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/plugins/SoundMixer/latest-cn.zip",
     "DownloadLinkUpdate":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/plugins/SoundMixer/latest-cn.zip",
