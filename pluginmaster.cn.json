@@ -1,44 +1,6 @@
 [
 {
     "Author":  "KKT",
-    "Name":  "SoundMixer",
-    "InternalName":  "SoundMixer",
-    "Punchline":  "Advanced FFXIV Sound Effect Volume Mixer",
-    "Description":  "【国服 CN 构建】适用于 XIVLauncher 国服 / Dalamud CN。按 SCD 路径精细调节音效音量：自定义分组与 Glob 模式、预设、实时监听、BGM/环境音支持，0–200% 线性增益（专家模式最高 350%）。命令：/soundmixer、/smix",
-    "ApplicableVersion":  "any",
-    "Tags":  [
-                 "sound",
-                 "audio",
-                 "volume",
-                 "mixer",
-                 "sfx",
-                 "customization"
-             ],
-    "CategoryTags":  [
-                         "utility",
-                         "sound"
-                     ],
-    "DalamudApiLevel":  15,
-    "AssemblyVersion":  "0.2.1.0",
-    "Changelog":  "0.1.0.0: Initial release with per-path volume mixing, groups, presets, BGM/ambient support, and CN/EN localization.",
-    "LastUpdate":  "1780845054",
-    "RepoUrl":  "https://github.com/kyodaikokata/SoundMixer",
-    "DownloadLinkInstall":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/plugins/SoundMixer/latest-cn.zip",
-    "DownloadLinkUpdate":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/plugins/SoundMixer/latest-cn.zip",
-    "DownloadLinkTesting":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/plugins/SoundMixer/latest-cn.zip",
-    "IconUrl":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/images/SoundMixer/icon.png",
-    "AcceptsFeedback":  true,
-    "FeedbackMessage":  "Please include steps to reproduce and the sound path if reporting a matching issue.",
-    "LoadRequiredState":  0,
-    "LoadSync":  false,
-    "CanUnloadAsync":  false,
-    "LoadPriority":  0,
-    "ImageUrls":  [
-
-                  ]
-},
-{
-    "Author":  "KKT",
     "Name":  "Heels Design Linker",
     "InternalName":  "HeelsDesignLinker",
     "Punchline":  "Match rules by SimpleHeels height or rendered equipment — not just heels — then auto-apply Glamourer/Penumbra and more",
@@ -73,6 +35,44 @@
     "LoadSync":  false,
     "CanUnloadAsync":  true,
     "LoadPriority":  -10,
+    "ImageUrls":  [
+
+                  ]
+},
+{
+    "Author":  "KKT",
+    "Name":  "SoundMixer",
+    "InternalName":  "SoundMixer",
+    "Punchline":  "Advanced FFXIV Sound Effect Volume Mixer",
+    "Description":  "【国服 CN 构建】按 SCD 路径精细调节音效：分组与 Glob、预设、实时监听、BGM/环境音、IPC 临时覆盖、可拖动 UI 布局。0–200% 线性增益（专家模式最高 350%）。命令：/soundmixer、/smix",
+    "ApplicableVersion":  "any",
+    "Tags":  [
+                 "sound",
+                 "audio",
+                 "volume",
+                 "mixer",
+                 "sfx",
+                 "customization"
+             ],
+    "CategoryTags":  [
+                         "utility",
+                         "sound"
+                     ],
+    "DalamudApiLevel":  15,
+    "AssemblyVersion":  "0.2.1.0",
+    "Changelog":  "0.2.1.0: Resizable UI splitters and layout persistence. See in-app changelog.",
+    "LastUpdate":  "1780848592",
+    "RepoUrl":  "https://github.com/kyodaikokata/SoundMixer",
+    "DownloadLinkInstall":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/plugins/SoundMixer/latest-cn.zip",
+    "DownloadLinkUpdate":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/plugins/SoundMixer/latest-cn.zip",
+    "DownloadLinkTesting":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/plugins/SoundMixer/latest-cn.zip",
+    "IconUrl":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/images/SoundMixer/icon.png",
+    "AcceptsFeedback":  true,
+    "FeedbackMessage":  "Please include steps to reproduce and the sound path if reporting a matching issue.",
+    "LoadRequiredState":  0,
+    "LoadSync":  false,
+    "CanUnloadAsync":  false,
+    "LoadPriority":  0,
     "ImageUrls":  [
 
                   ]
