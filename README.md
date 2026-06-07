@@ -31,7 +31,7 @@ After adding the URL, return to the plugin list and search by name to install or
 | 插件 Plugin | 版本 Version | CN | Global | 源码 Source |
 |-------------|--------------|:--:|:------:|-------------|
 | Heels Design Linker | **1.3.0.2** | ✅ | ✅ | [HeelsDesignLinker](https://github.com/kyodaikokata/HeelsDesignLinker) |
-| SoundMixer | **0.2.1.2** | ✅ | ✅ | [SoundMixer](https://github.com/kyodaikokata/SoundMixer) |
+| SoundMixer | **0.2.2.0** | ✅ | ✅ | [SoundMixer](https://github.com/kyodaikokata/SoundMixer) |
 
 ---
 
@@ -68,15 +68,15 @@ Beyond **SimpleHeels height**, rules can match **rendered equipment** (e.g. empt
 |---|---|
 | **游戏内命令** | `/soundmixer` · `/smix` |
 
-**本版更新 · This release (0.2.1.2)**  
-- 中文：修复上下坐骑时 SetVolume 钩子导致的崩溃；更安全的音量读写与原生淡入淡出处理。详见游戏内更新日志。  
-- English: Fix mount/dismount crashes in SetVolume hooks; safer volume read/write and native fade handling. See in-app changelog.
+**本版更新 · This release (0.2.2.0)**  
+- 中文：**安全模式**（可选）——默认骑乘时仍应用音量规则；若在外勤机等坐骑上崩溃，可在专家模式后开启安全模式，挂起骑乘期 hook。黑名单 Tab 支持手动拉取官方列表（10 秒冷却）；官方备注中英双语。详见游戏内更新日志。  
+- English: **Safe Mode** (optional)—volume rules apply while mounted by default; enable Safe Mode after Expert Mode to suspend hooks on mount if needed (e.g. Guideroid). Blacklist tab: manual official-list fetch (10s cooldown); bilingual official notes. See in-app changelog.
 
 **中文**  
-按 **SCD 路径** 精细调节音效：分组与 Glob、预设、实时监听、BGM/环境音、**IPC 临时覆盖**、可拖动 UI 布局（0–200% 线性增益，专家模式最高约 350%）。
+按 **SCD 路径** 精细调节音效：分组与 Glob、预设、实时监听、BGM/环境音、**IPC 临时覆盖**、可拖动 UI 布局（0–200% 线性增益，专家模式最高约 350%）。**黑名单** Tab：玩家自定义规则 + 官方只读列表（关键词 / 路径 / Glob）；**安全模式** 为可选项，用于骑乘期稳定性保护。
 
 **English**  
-Per-**SCD-path** volume mixing with groups, Glob patterns, presets, live monitor, BGM/ambient, **IPC temporary overrides**, and resizable UI layout (0–200% linear gain; Expert Mode up to ~350%).
+Per-**SCD-path** volume mixing with groups, Glob patterns, presets, live monitor, BGM/ambient, **IPC temporary overrides**, and resizable UI layout (0–200% linear gain; Expert Mode up to ~350%). **Blacklist** tab: user rules + read-only official list (keyword / path / Glob); optional **Safe Mode** for mount-transition stability.
 
 **反馈 / Feedback：** 功能、Bug、建议请提交至 **[SoundMixer Issues](https://github.com/kyodaikokata/SoundMixer/issues)**（勿在本 Catalog 仓库开 Issue）。  
 Report features, bugs, or suggestions at **[SoundMixer Issues](https://github.com/kyodaikokata/SoundMixer/issues)** — **not** in this catalog repo.
