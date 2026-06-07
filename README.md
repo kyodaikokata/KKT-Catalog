@@ -56,6 +56,8 @@ After adding the URL, return to the plugin list and search by name to install or
 Beyond **SimpleHeels height**, rules can match **rendered equipment** (e.g. empty feet, specific head ModelId, body gear) and auto-apply **Glamourer**, **Penumbra**, and optional **Moodles**, **Honorific**, or **SoundMixer**.  
 **Strongly recommended:** SimpleHeels, Glamourer, and Penumbra.
 
+**反馈 / Feedback：** [HeelsDesignLinker Issues](https://github.com/kyodaikokata/HeelsDesignLinker/issues)
+
 [HeelsDesignLinker README](https://github.com/kyodaikokata/HeelsDesignLinker#readme)
 
 ---
@@ -76,16 +78,29 @@ Beyond **SimpleHeels height**, rules can match **rendered equipment** (e.g. empt
 **English**  
 Fine-grained FFXIV audio mixing by **SCD path**. **Glob** groups, nested groups, **presets**, and a **live monitor**; BGM and ambient support (Expert Mode up to ~350% audible cap).
 
+**反馈 / Feedback：** 功能、Bug、建议请提交至 **[SoundMixer Issues](https://github.com/kyodaikokata/SoundMixer/issues)**（勿在本 Catalog 仓库开 Issue）。  
+Report features, bugs, or suggestions at **[SoundMixer Issues](https://github.com/kyodaikokata/SoundMixer/issues)** — **not** in this catalog repo.
+
 [SoundMixer README](https://github.com/kyodaikokata/SoundMixer#readme)
 
 ---
 
 ## 反馈与支持 · Feedback & support
 
-| 需求 Need | 去哪里 Where |
-|-----------|--------------|
-| 插件功能、Bug、建议 Feature, bugs, suggestions | 对应插件的 **源码仓库 Issues**（见上表） |
-| 合集源无法安装、URL 失效 Catalog install / URL issues | [KKT-Catalog Issues](https://github.com/kyodaikokata/KKT-Catalog/issues) |
+**插件相关问题请到各插件源码仓提 Issue，不要在本仓库（KKT-Catalog）提交。**  
+**For plugin bugs or feature requests, use each plugin’s source repo — not KKT-Catalog.**
+
+| 插件 Plugin | Issues |
+|-------------|--------|
+| Heels Design Linker | [kyodaikokata/HeelsDesignLinker/issues](https://github.com/kyodaikokata/HeelsDesignLinker/issues) |
+| SoundMixer | [kyodaikokata/SoundMixer/issues](https://github.com/kyodaikokata/SoundMixer/issues) |
+
+仅在以下情况使用 **本仓库** [KKT-Catalog Issues](https://github.com/kyodaikokata/KKT-Catalog/issues)：
+
+- 自定义源 URL 无法添加或 manifest / zip 下载失败  
+- 合集源配置、分发文件错误（与插件逻辑无关）
+
+Use **KKT-Catalog Issues** only for catalog distribution problems (repo URL, manifest, zip download) — not plugin behavior.
 
 ---
 

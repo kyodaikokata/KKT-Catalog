@@ -9,7 +9,7 @@
 | 仓库 | 职责 |
 |------|------|
 | **KKT-Catalog**（本仓库） | 聚合多款插件的 manifest 与发行 zip；用户只需添加一个 Repo URL |
-| **各插件独立仓库**（如 `HeelsDesignLinker`） | 存放源码、开发历史、Issue；`RepoUrl` 指向此处 |
+| **各插件独立仓库**（如 `HeelsDesignLinker`、`SoundMixer`） | 存放源码、开发历史；**插件 Bug / 功能建议的 Issue 提交到对应源码仓**，非 KKT-Catalog |
 
 **原则：**
 
