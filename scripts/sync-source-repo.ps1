@@ -36,6 +36,8 @@ try {
 
     $projectSubPath = if ($plugin.projectSubPath) { $plugin.projectSubPath } else { $plugin.assemblyName }
     $assemblyName = $plugin.assemblyName
+    # csproj / source manifest basename may differ from assembly output (e.g. HeelsToggle.csproj -> HeelsDesignLinker.dll)
+    $projectFileBase = if ($plugin.projectFileBase) { $plugin.projectFileBase } else { $assemblyName }
 
     Write-Host ""
     Write-Host "=== Sync source repo: $InternalName ===" -ForegroundColor Cyan
@@ -105,8 +107,8 @@ try {
     }
 
     $required = @(
-        (Join-Path $sourceRoot "$projectSubPath\$assemblyName.csproj"),
-        (Join-Path $sourceRoot "$projectSubPath\$assemblyName.json")
+        (Join-Path $sourceRoot "$projectSubPath\$projectFileBase.csproj"),
+        (Join-Path $sourceRoot "$projectSubPath\$projectFileBase.json")
     )
 
     $icon = Resolve-PluginIconSource -WorkInProgressPath $wipRoot -PluginFolder $plugin.pluginFolder

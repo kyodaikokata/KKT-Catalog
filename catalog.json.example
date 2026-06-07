@@ -11,6 +11,7 @@
       "sourceRepoUrl": "https://github.com/kyodaikokata/HeelsDesignLinker",
       "workInProgressPath": "E:/work/DalamudProject/WorkInProgress/HeelsToggle",
       "projectSubPath": "HeelsToggle",
+      "projectFileBase": "HeelsToggle",
       "publishGlobal": true,
       "enabled": true
     },
