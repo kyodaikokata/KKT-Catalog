@@ -63,8 +63,7 @@ KKT-Catalog/                      合集分发仓（用户 Repo URL 指向这里
 | `dist/`（`cn/global/latest.zip`） | ✅ 临时 | ❌ | ❌ |
 | `bin/`、`obj/` | ✅ 本地 | ❌ gitignore | ❌ |
 | `pluginmaster.*.json`（单插件草稿/模板） | ✅ | 迁移期可 deprecated | ❌ |
-| `catalog.json`（本地，含路径） | ❌ | ❌ | ✅ gitignore |
-| `catalog.json.example` | ❌ | ❌ | ✅ |
+| `catalog.json` | ❌ | ❌ | ✅ |
 | `pluginmaster.cn.json` / `pluginmaster.global.json`（合集） | ❌ | ❌ | ✅ |
 | `plugins/<InternalName>/latest-cn.zip` | ❌ | ❌ 迁入后 | ✅ |
 | `plugins/<InternalName>/latest-global.zip` | ❌ | ❌ 迁入后 | ✅ |
@@ -133,8 +132,7 @@ KKT-Catalog/
 ├── LICENSE
 ├── README.md
 ├── REPOSITORY.md
-├── catalog.json.example          # 插件注册表模板（提交）
-├── catalog.json                  # 本地配置（gitignore，含本机路径）
+├── catalog.json                  # 插件注册表；release 脚本主配置
 ├── pluginmaster.cn.json          # 用户安装的国服 manifest
 ├── pluginmaster.global.json      # 用户安装的国际服 manifest
 ├── plugins/
@@ -168,10 +166,20 @@ KKT-Catalog/
 # 在 WorkInProgress/<Plugin>/ 执行
 .\scripts\publish-release.ps1
     → .\scripts\build-dual.ps1              # 产出 dist/cn|global/latest.zip
-    → <CatalogRoot>\scripts\publish-plugin.ps1 -InternalName <Name>
+    → <CatalogRoot>\scripts\publish-plugin.ps1 `
+         -InternalName <Name> `
+         -WorkInProgressRoot <WIP根目录> `
+         -DistDir <WIP根目录>\dist
 ```
 
-`publish-release.ps1` 可通过 `catalog.json` 中的 `catalogRoot` 或环境变量 `KKT_CATALOG_ROOT` 定位 Catalog 路径，**不要**在插件仓内复制一份 `publish-plugin.ps1`。
+`publish-release.ps1` 可通过 `catalog.json` 中的 `catalogRoot` 或环境变量 `KKT_CATALOG_ROOT` 定位 Catalog 路径。**不要**在插件源码仓（GitHub 镜像）内复制 `publish-plugin.ps1`；`PublishHelpers.ps1` 仅存在于 WIP 的 `scripts/lib/`。
+
+`publish-plugin.ps1` 解析 WIP 根目录的优先级：
+
+1. 参数 `-WorkInProgressRoot`（`publish-release.ps1` 传入）
+2. `-DistDir` 的父目录（当路径以 `\dist` 结尾）
+3. `DalamudProject/WorkInProgress/<PluginFolder>`（由 Catalog 路径向上推导，**非** `Release/WorkInProgress`）
+4. `catalog.json` 的 `workInProgressPath` 或环境变量 `KKT_WIP_<InternalName>`
 
 ### 2.5 与旧模式（单插件 Release 文件夹）的差异
 
@@ -226,24 +234,18 @@ KKT-Catalog/
 
 ---
 
-## 5. 插件注册表 `catalog.json` / `catalog.json.example`
+## 5. 插件注册表 `catalog.json`
 
-脚本以 **本地** `catalog.json` 为配置入口（**不提交 Git**），再生成或更新 `pluginmaster.*.json`。  
-仓库内仅提交无本机路径的 `catalog.json.example`；首次克隆后：
+脚本应以 `catalog.json` 为配置入口，再生成或更新 `pluginmaster.*.json`。  
+避免在脚本中硬编码插件列表。
 
-```powershell
-Copy-Item catalog.json.example catalog.json
-# 可选：在 catalog.json 中填写 catalogRoot、workInProgressPath
-```
-
-未填写 `workInProgressPath` 时，`publish-plugin.ps1` 会尝试同级 `Release/<PluginFolder>` 目录，或环境变量 `KKT_WIP_<InternalName>`。
-
-### 5.1 格式（`catalog.json.example`，可提交）
+### 5.1 格式
 
 ```json
 {
   "catalogRepo": "kyodaikokata/KKT-Catalog",
   "defaultBranch": "main",
+  "catalogRoot": "E:/work/DalamudProject/Release/KKT-Catalog",
   "plugins": [
     {
       "internalName": "HeelsDesignLinker",
@@ -269,8 +271,8 @@ Copy-Item catalog.json.example catalog.json
 | `pluginFolder` | 是 | `plugins/`、`images/` 子目录名 |
 | `sourceRepo` | 是 | `owner/repo`，用于 `RepoUrl` 与文档 |
 | `sourceRepoUrl` | 是 | 完整 GitHub URL |
-| `catalogRoot` | 否 | **仅本地** `catalog.json`；本机 Catalog 路径 |
-| `workInProgressPath` | 否 | **仅本地** `catalog.json`；可省略，由脚本自动解析同级 Release 目录 |
+| `catalogRoot` | 否 | 本机 KKT-Catalog 路径；`publish-release.ps1` 用于定位 `publish-plugin.ps1` |
+| `workInProgressPath` | 否 | 本地开发根目录，供 build 脚本定位源码（仅维护者机器） |
 | `projectSubPath` | 否 | 相对 `workInProgressPath` 的 csproj 目录 |
 | `publishGlobal` | 否 | 默认 `true`；仅国服时设为 `false`，只发布 `latest-cn.zip` |
 | `enabled` | 否 | 默认 `true`；`false` 时从 manifest 中排除（下架保留目录） |
@@ -353,7 +355,7 @@ IconUrl                = {BASE}/images/{PluginFolder}/icon.png
 
 ### 7.1 内容
 
-每个 zip **恰好 3 个文件**，根目录扁平、无子路径：
+zip 根目录 **扁平、无子路径**。默认插件 **恰好 3 个文件**：
 
 ```
 {AssemblyName}.dll
@@ -361,12 +363,23 @@ IconUrl                = {BASE}/images/{PluginFolder}/icon.png
 {AssemblyName}.json
 ```
 
+**带卫星程序集的插件**（如 SoundMixer 依赖 `DotNet.Glob`）允许 **4 个文件**，在对应插件的 `PublishHelpers.ps1` 中显式校验，例如：
+
+```
+{AssemblyName}.dll
+DotNet.Glob.dll
+{AssemblyName}.pdb
+{AssemblyName}.json
+```
+
+不使用 ILRepack 合并依赖时，卫星 DLL 必须与主 DLL 同目录打包。
+
 ### 7.2 禁止项
 
 - 嵌套目录或路径分隔符（`/`、`\`）
 - `*.deps.json`
 - 嵌套的 `latest.zip`
-- 除上述 3 个文件外的任何条目
+- 除插件 `PublishHelpers.ps1` 允许列表外的任何条目
 
 ### 7.3 Zip 内 manifest（`{AssemblyName}.json`）
 
@@ -422,7 +435,7 @@ WorkInProgress/<Plugin>/scripts/publish-release.ps1
 建议每次 commit 仅包含该插件相关变更：
 
 ```
-catalog.json                                    # 本地维护（不提交）；若新增插件请同步改 catalog.json.example
+catalog.json                                    # 若新增插件
 pluginmaster.cn.json
 pluginmaster.global.json
 plugins/<PluginFolder>/latest-cn.zip
@@ -445,7 +458,7 @@ Release <InternalName> <AssemblyVersion>
 ### 9.1 纳入版本控制
 
 - 所有 `pluginmaster.*.json`
-- `catalog.json.example`
+- `catalog.json`
 - `plugins/**/latest-cn.zip`、`plugins/**/latest-global.zip`
 - `images/**/icon.png`
 - `scripts/`、`LICENSE`、`README.md`、`REPOSITORY.md`
@@ -499,6 +512,8 @@ param(
     [Parameter(Mandatory)]
     [string]$InternalName,
     [string]$CatalogRoot = "$PSScriptRoot\..",
+    [string]$WorkInProgressRoot,     # 推荐由 publish-release.ps1 传入
+    [string]$SourceRoot,           # WorkInProgressRoot 别名
     [string]$DistDir,              # 默认从 WIP 的 dist/ 读取
     [switch]$SkipGlobal,
     [switch]$WhatIf
@@ -536,7 +551,7 @@ param(
 3. 在 **KKT-Catalog** 的 `catalog.json` 追加条目。
 4. 在 WIP / 插件源码仓准备 `images/icon.png`；首次发版时由 release 脚本复制到 Catalog。
 5. 在 **WIP / 插件源码仓** `scripts/` 放置 `build-dual.ps1`、`PublishHelpers.ps1`（§2.4）；**不要**把 build 脚本放进 Catalog。
-6. 在 WIP 运行 `publish-release.ps1`（内部调用 Catalog 的 `publish-plugin.ps1`，待实现）。
+6. 在 WIP / 插件源码仓运行 `publish-release.ps1`（内部调用 Catalog 的 `publish-plugin.ps1`）。
 7. 验证 Catalog raw URL 可下载 zip 与 manifest。
 8. 更新 Catalog `README.md` 插件列表；插件源码仓 `README` 注明 Catalog 安装 URL。
 
@@ -575,4 +590,25 @@ param(
 
 ---
 
-*文档版本：与仓库初始化同步。后续若目录或脚本契约变更，请同步更新本节与 `catalog.json` 示例。*
+## 15. 提交前检查（维护者）
+
+推送 KKT-Catalog 前确认：
+
+- [ ] `pluginmaster.cn.json` / `pluginmaster.global.json` 版本与 zip 内 `AssemblyVersion` 一致
+- [ ] `README.md` 插件表与 manifest 版本一致
+- [ ] **未** `git add catalog.json`（应已在 `.gitignore`）
+- [ ] 已提交 `catalog.json.example`（无本机路径）
+- [ ] 各插件 `plugins/<Name>/latest-*.zip` 与 `images/<Name>/icon.png` 已纳入本次 commit
+
+建议 commit 范围：
+
+```powershell
+git add README.md REPOSITORY.md .gitignore catalog.json.example `
+  pluginmaster.cn.json pluginmaster.global.json `
+  plugins/ images/ scripts/
+git rm --cached catalog.json   # 若曾被跟踪
+```
+
+---
+
+*文档版本：与仓库初始化同步。后续若目录或脚本契约变更，请同步更新本节与 `catalog.json.example`。*

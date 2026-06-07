@@ -24,36 +24,79 @@ function Read-CatalogConfig {
     return $catalog
 }
 
+function Get-DefaultWorkInProgressRoot {
+    param(
+        [Parameter(Mandatory)]
+        [string]$CatalogRoot
+    )
+
+    if ($env:KKT_WORK_IN_PROGRESS_ROOT) {
+        return $env:KKT_WORK_IN_PROGRESS_ROOT
+    }
+
+    # Catalog lives at .../Release/KKT-Catalog -> WIP at .../WorkInProgress (not .../Release/WorkInProgress)
+    $releaseRoot = Split-Path $CatalogRoot -Parent
+    $projectRoot = Split-Path $releaseRoot -Parent
+    return Join-Path $projectRoot "WorkInProgress"
+}
+
 function Resolve-PluginWorkRoot {
     param(
         [Parameter(Mandatory)]
         [string]$CatalogRoot,
         [Parameter(Mandatory)]
-        [object]$Plugin
+        [object]$Plugin,
+        [string]$WorkInProgressRoot,
+        [string]$DistDir
     )
 
-    if ($Plugin.workInProgressPath -and (Test-Path $Plugin.workInProgressPath)) {
-        return [System.IO.Path]::GetFullPath($Plugin.workInProgressPath)
+    $candidates = New-Object System.Collections.Generic.List[string]
+
+    if ($WorkInProgressRoot) {
+        $candidates.Add($WorkInProgressRoot)
+    }
+
+    if ($DistDir) {
+        $distFull = [System.IO.Path]::GetFullPath($DistDir)
+        if ((Split-Path $distFull -Leaf) -ieq "dist") {
+            $candidates.Add((Split-Path $distFull -Parent))
+        }
+    }
+
+    $defaultWipRoot = Get-DefaultWorkInProgressRoot -CatalogRoot $CatalogRoot
+    if ($Plugin.pluginFolder) {
+        $candidates.Add((Join-Path $defaultWipRoot $Plugin.pluginFolder))
+    }
+    if ($Plugin.internalName -and $Plugin.internalName -ne $Plugin.pluginFolder) {
+        $candidates.Add((Join-Path $defaultWipRoot $Plugin.internalName))
+    }
+    if ($Plugin.projectSubPath) {
+        $candidates.Add((Join-Path $defaultWipRoot $Plugin.projectSubPath))
     }
 
     $envName = "KKT_WIP_$($Plugin.internalName)"
     $fromEnv = [Environment]::GetEnvironmentVariable($envName)
-    if ($fromEnv -and (Test-Path $fromEnv)) {
-        return [System.IO.Path]::GetFullPath($fromEnv)
+    if ($fromEnv) {
+        $candidates.Add($fromEnv)
     }
 
-    $releaseParent = Split-Path $CatalogRoot -Parent
-    $candidates = @(
-        (Join-Path $releaseParent $Plugin.pluginFolder),
-        (Join-Path $releaseParent $Plugin.internalName)
-    )
+    if ($Plugin.workInProgressPath) {
+        $candidates.Add([string]$Plugin.workInProgressPath)
+    }
+
     foreach ($candidate in $candidates) {
-        if (Test-Path (Join-Path $candidate "pluginmaster.cn.json")) {
-            return [System.IO.Path]::GetFullPath($candidate)
+        if ([string]::IsNullOrWhiteSpace($candidate)) {
+            continue
+        }
+
+        $full = [System.IO.Path]::GetFullPath($candidate)
+        $helpers = Join-Path $full "scripts\lib\PublishHelpers.ps1"
+        if (Test-Path $helpers) {
+            return $full
         }
     }
 
-    throw "Could not resolve work root for '$($Plugin.internalName)'. Set workInProgressPath in catalog.json or env $envName."
+    throw "Could not resolve WIP root for '$($Plugin.internalName)'. Run publish-release.ps1 from WorkInProgress/<Plugin>/, set workInProgressPath in catalog.json, or env $envName / KKT_WORK_IN_PROGRESS_ROOT."
 }
 
 function Get-CatalogPlugin {

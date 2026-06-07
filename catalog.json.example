@@ -1,6 +1,7 @@
 {
   "catalogRepo": "kyodaikokata/KKT-Catalog",
   "defaultBranch": "main",
+  "catalogRoot": "E:/work/DalamudProject/Release/KKT-Catalog",
   "plugins": [
     {
       "internalName": "HeelsDesignLinker",
@@ -8,6 +9,7 @@
       "pluginFolder": "HeelsDesignLinker",
       "sourceRepo": "kyodaikokata/HeelsDesignLinker",
       "sourceRepoUrl": "https://github.com/kyodaikokata/HeelsDesignLinker",
+      "workInProgressPath": "E:/work/DalamudProject/WorkInProgress/HeelsToggle",
       "projectSubPath": "HeelsToggle",
       "publishGlobal": true,
       "enabled": true
@@ -18,6 +20,7 @@
       "pluginFolder": "SoundMixer",
       "sourceRepo": "kyodaikokata/SoundMixer",
       "sourceRepoUrl": "https://github.com/kyodaikokata/SoundMixer",
+      "workInProgressPath": "E:/work/DalamudProject/WorkInProgress/SoundMixer",
       "projectSubPath": "SoundMixer",
       "publishGlobal": true,
       "enabled": true

@@ -1,6 +1,44 @@
 [
 {
     "Author":  "KKT",
+    "Name":  "SoundMixer",
+    "InternalName":  "SoundMixer",
+    "Punchline":  "Advanced FFXIV Sound Effect Volume Mixer",
+    "Description":  "【国际 Global 构建】适用于 XIVLauncher 国际服。Per-SCD-path volume control for FFXIV sound effects. Custom groups with Glob patterns, presets, live monitor, BGM/ambient support, and 0–350% gain. Commands: /soundmixer, /smix",
+    "ApplicableVersion":  "any",
+    "Tags":  [
+                 "sound",
+                 "audio",
+                 "volume",
+                 "mixer",
+                 "sfx",
+                 "customization"
+             ],
+    "CategoryTags":  [
+                         "utility",
+                         "sound"
+                     ],
+    "DalamudApiLevel":  15,
+    "AssemblyVersion":  "0.2.0.0",
+    "Changelog":  "0.2.0.0: IPC temporary overrides; collapsible monitor/IPC panels; DotNet.Glob.dll bundled; live monitor guards; CN/EN UI.",
+    "LastUpdate":  "1780828935",
+    "RepoUrl":  "https://github.com/kyodaikokata/SoundMixer",
+    "DownloadLinkInstall":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/plugins/SoundMixer/latest-global.zip",
+    "DownloadLinkUpdate":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/plugins/SoundMixer/latest-global.zip",
+    "DownloadLinkTesting":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/plugins/SoundMixer/latest-global.zip",
+    "IconUrl":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/images/SoundMixer/icon.png",
+    "AcceptsFeedback":  true,
+    "FeedbackMessage":  "Please include steps to reproduce and the sound path if reporting a matching issue.",
+    "LoadRequiredState":  0,
+    "LoadSync":  false,
+    "CanUnloadAsync":  false,
+    "LoadPriority":  0,
+    "ImageUrls":  [
+
+                  ]
+},
+{
+    "Author":  "KKT",
     "Name":  "Heels Design Linker",
     "InternalName":  "HeelsDesignLinker",
     "Punchline":  "Auto-switch Glamourer/Penumbra by SimpleHeels height, with optional Moodles / Honorific",
@@ -22,9 +60,9 @@
                          "other"
                      ],
     "DalamudApiLevel":  15,
-    "AssemblyVersion":  "1.2.1.2",
-    "Changelog":  "1.2.1.1: Baseline skip when rule uses same param; HelpMarker UI; localization updates.",
-    "LastUpdate":  "1780788803",
+    "AssemblyVersion":  "1.2.1.3",
+    "Changelog":  "1.2.1.3: UI localization complete; Penumbra temp apply, SoundMixer, stability fixes (see in-app changelog); developer docs.",
+    "LastUpdate":  "1780833350",
     "RepoUrl":  "https://github.com/kyodaikokata/HeelsDesignLinker",
     "DownloadLinkInstall":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/plugins/HeelsDesignLinker/latest-global.zip",
     "DownloadLinkUpdate":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/plugins/HeelsDesignLinker/latest-global.zip",
@@ -34,44 +72,6 @@
     "LoadSync":  false,
     "CanUnloadAsync":  true,
     "LoadPriority":  -10,
-    "ImageUrls":  [
-
-                  ]
-},
-{
-    "Author":  "KKT",
-    "Name":  "SoundMixer",
-    "InternalName":  "SoundMixer",
-    "Punchline":  "Advanced FFXIV Sound Effect Volume Mixer",
-    "Description":  "【国际 Global 构建】适用于 XIVLauncher 国际服。Per-SCD-path volume control for FFXIV sound effects. Custom groups with Glob patterns, presets, live monitor, BGM/ambient support, and 0–350% gain. Commands: /soundmixer, /smix",
-    "ApplicableVersion":  "any",
-    "Tags":  [
-                 "sound",
-                 "audio",
-                 "volume",
-                 "mixer",
-                 "sfx",
-                 "customization"
-             ],
-    "CategoryTags":  [
-                         "utility",
-                         "sound"
-                     ],
-    "DalamudApiLevel":  15,
-    "AssemblyVersion":  "0.1.0.0",
-    "Changelog":  "0.1.0.0: Initial release with per-path volume mixing, groups, presets, BGM/ambient support, and CN/EN localization.",
-    "LastUpdate":  "1780789352",
-    "RepoUrl":  "https://github.com/kyodaikokata/SoundMixer",
-    "DownloadLinkInstall":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/plugins/SoundMixer/latest-global.zip",
-    "DownloadLinkUpdate":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/plugins/SoundMixer/latest-global.zip",
-    "DownloadLinkTesting":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/plugins/SoundMixer/latest-global.zip",
-    "IconUrl":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/images/SoundMixer/icon.png",
-    "AcceptsFeedback":  true,
-    "FeedbackMessage":  "Please include steps to reproduce and the sound path if reporting a matching issue.",
-    "LoadRequiredState":  0,
-    "LoadSync":  false,
-    "CanUnloadAsync":  false,
-    "LoadPriority":  0,
     "ImageUrls":  [
 
                   ]

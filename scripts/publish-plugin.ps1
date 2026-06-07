@@ -3,6 +3,8 @@ param(
     [Parameter(Mandatory)]
     [string]$InternalName,
     [string]$CatalogRoot = (Join-Path $PSScriptRoot ".."),
+    [string]$WorkInProgressRoot,
+    [string]$SourceRoot,
     [string]$DistDir,
     [switch]$SkipGlobal,
     [switch]$WhatIf
@@ -24,7 +26,16 @@ try {
 
     $assemblyName = $plugin.assemblyName
     $pluginFolder = $plugin.pluginFolder
-    $wipRoot = Resolve-PluginWorkRoot -CatalogRoot $CatalogRoot -Plugin $plugin
+
+    if (-not $WorkInProgressRoot -and $SourceRoot) {
+        $WorkInProgressRoot = $SourceRoot
+    }
+
+    $wipRoot = Resolve-PluginWorkRoot `
+        -CatalogRoot $CatalogRoot `
+        -Plugin $plugin `
+        -WorkInProgressRoot $WorkInProgressRoot `
+        -DistDir $DistDir
 
     if (-not $DistDir) {
         $DistDir = Join-Path $wipRoot "dist"
