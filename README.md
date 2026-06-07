@@ -31,7 +31,7 @@ After adding the URL, return to the plugin list and search by name to install or
 | 插件 Plugin | 版本 Version | CN | Global | 源码 Source |
 |-------------|--------------|:--:|:------:|-------------|
 | Heels Design Linker | **1.3.0.2** | ✅ | ✅ | [HeelsDesignLinker](https://github.com/kyodaikokata/HeelsDesignLinker) |
-| SoundMixer | **0.2.1.0** | ✅ | ✅ | [SoundMixer](https://github.com/kyodaikokata/SoundMixer) |
+| SoundMixer | **0.2.1.2** | ✅ | ✅ | [SoundMixer](https://github.com/kyodaikokata/SoundMixer) |
 
 ---
 
@@ -68,15 +68,15 @@ Beyond **SimpleHeels height**, rules can match **rendered equipment** (e.g. empt
 |---|---|
 | **游戏内命令** | `/soundmixer` · `/smix` |
 
-**本版更新 · This release (0.2.0.0)**  
-- 中文：外部插件 **IPC 临时音量覆盖**；可折叠监听/IPC 面板；发行包附带 `DotNet.Glob.dll`；实时监听防崩溃；中英界面与游戏内更新日志。  
-- English: **IPC temporary volume overrides** for external plugins; collapsible monitor/IPC panels; ships `DotNet.Glob.dll`; live monitor crash guards; CN/EN UI and in-game changelog.
+**本版更新 · This release (0.2.1.2)**  
+- 中文：修复上下坐骑时 SetVolume 钩子导致的崩溃；更安全的音量读写与原生淡入淡出处理。详见游戏内更新日志。  
+- English: Fix mount/dismount crashes in SetVolume hooks; safer volume read/write and native fade handling. See in-app changelog.
 
 **中文**  
-按 **SCD 路径** 精细控制 FF14 音效音量。支持 **Glob** 分组、嵌套分组、**预设** 与 **实时监听**；可调节 BGM 与环境音（专家模式最高约 350% 听感上限）。
+按 **SCD 路径** 精细调节音效：分组与 Glob、预设、实时监听、BGM/环境音、**IPC 临时覆盖**、可拖动 UI 布局（0–200% 线性增益，专家模式最高约 350%）。
 
 **English**  
-Fine-grained FFXIV audio mixing by **SCD path**. **Glob** groups, nested groups, **presets**, and a **live monitor**; BGM and ambient support (Expert Mode up to ~350% audible cap).
+Per-**SCD-path** volume mixing with groups, Glob patterns, presets, live monitor, BGM/ambient, **IPC temporary overrides**, and resizable UI layout (0–200% linear gain; Expert Mode up to ~350%).
 
 **反馈 / Feedback：** 功能、Bug、建议请提交至 **[SoundMixer Issues](https://github.com/kyodaikokata/SoundMixer/issues)**（勿在本 Catalog 仓库开 Issue）。  
 Report features, bugs, or suggestions at **[SoundMixer Issues](https://github.com/kyodaikokata/SoundMixer/issues)** — **not** in this catalog repo.
