@@ -30,7 +30,7 @@ After adding the URL, return to the plugin list and search by name to install or
 
 | 插件 Plugin | 版本 Version | CN | Global | 源码 Source |
 |-------------|--------------|:--:|:------:|-------------|
-| Heels Design Linker | **1.3.0.1** | ✅ | ✅ | [HeelsDesignLinker](https://github.com/kyodaikokata/HeelsDesignLinker) |
+| Heels Design Linker | **1.3.0.2** | ✅ | ✅ | [HeelsDesignLinker](https://github.com/kyodaikokata/HeelsDesignLinker) |
 | SoundMixer | **0.2.1.0** | ✅ | ✅ | [SoundMixer](https://github.com/kyodaikokata/SoundMixer) |
 
 ---
@@ -44,9 +44,9 @@ After adding the URL, return to the plugin list and search by name to install or
 > **不仅限于高跟鞋！** 除 SimpleHeels 高度外，还可根据 **当前渲染装备外观**（DrawObject）匹配规则；可组合高度与装备条件，自动执行 Glamourer、Penumbra、Moodles、Honorific、SoundMixer 等行动。  
 > **Not just for heels!** Match rules by **SimpleHeels height** and/or **rendered equipment** (DrawObject), then auto-apply Glamourer, Penumbra, Moodles, Honorific, or SoundMixer actions.
 
-**本版更新 · This release (1.3.0.1)**  
-- 中文：装备物品名搜索与 ModelId 预览显示对应游戏图标；无匹配或图标无效时静默跳过。详见游戏内「更新履历」。  
-- English: Item icons in equipment name search and ModelId preview; silently skips when no match or invalid icon. See in-app changelog.
+**本版更新 · This release (1.3.0.2)**  
+- 中文：修复 Penumbra 在规则稳定时约每 20 秒重复 apply；DTR 状态栏显示当前高度与匹配规则（可点击打开设置，可在设置中关闭）。详见游戏内「更新履历」。  
+- English: Fix Penumbra re-applying every ~20s on stable rules; DTR bar shows height and matched rule (click to open settings, can disable in settings). See in-app changelog.
 
 **中文**  
 在 **SimpleHeels 高度** 之外，还可按 **当前渲染装备**（如脚部是否为空、头部 ModelId、身体是否有装备等）触发规则，并自动应用 **Glamourer** 设计、**Penumbra** mod 选项，以及可选的 **Moodles**、**Honorific**、**SoundMixer**。  
