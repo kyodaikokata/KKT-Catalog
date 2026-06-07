@@ -61,7 +61,7 @@
     "DalamudApiLevel":  15,
     "AssemblyVersion":  "0.2.2.0",
     "Changelog":  "0.2.2.0: Safe Mode (optional mount hook guard, off by default); blacklist official fetch; bilingual official notes. See in-app changelog.",
-    "LastUpdate":  "1780863186",
+    "LastUpdate":  "1780863755",
     "RepoUrl":  "https://github.com/kyodaikokata/SoundMixer",
     "DownloadLinkInstall":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/plugins/SoundMixer/latest-global.zip",
     "DownloadLinkUpdate":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/plugins/SoundMixer/latest-global.zip",

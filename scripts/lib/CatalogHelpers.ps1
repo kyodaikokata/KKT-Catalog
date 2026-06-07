@@ -251,3 +251,115 @@ function Resolve-PluginIconSource {
 
     return $null
 }
+
+function Get-DefaultSourceRepoRoot {
+    param(
+        [Parameter(Mandatory)]
+        [string]$CatalogRoot,
+        [Parameter(Mandatory)]
+        [object]$Plugin
+    )
+
+    $releaseRoot = Split-Path $CatalogRoot -Parent
+    if ($Plugin.pluginFolder) {
+        return Join-Path $releaseRoot $Plugin.pluginFolder
+    }
+
+    return Join-Path $releaseRoot $Plugin.internalName
+}
+
+function Resolve-SourceRepoRoot {
+    param(
+        [Parameter(Mandatory)]
+        [string]$CatalogRoot,
+        [Parameter(Mandatory)]
+        [object]$Plugin,
+        [string]$SourceRepoRoot
+    )
+
+    $candidates = New-Object System.Collections.Generic.List[string]
+
+    if ($SourceRepoRoot) {
+        $candidates.Add($SourceRepoRoot)
+    }
+
+    if ($Plugin.sourceRepoLocalPath) {
+        $candidates.Add([string]$Plugin.sourceRepoLocalPath)
+    }
+
+    $envName = "KKT_SOURCE_$($Plugin.internalName)"
+    $fromEnv = [Environment]::GetEnvironmentVariable($envName)
+    if ($fromEnv) {
+        $candidates.Add($fromEnv)
+    }
+
+    $candidates.Add((Get-DefaultSourceRepoRoot -CatalogRoot $CatalogRoot -Plugin $Plugin))
+
+    foreach ($candidate in $candidates) {
+        if ([string]::IsNullOrWhiteSpace($candidate)) {
+            continue
+        }
+
+        $full = [System.IO.Path]::GetFullPath($candidate)
+        if (Test-Path (Join-Path $full ".git")) {
+            return $full
+        }
+    }
+
+    foreach ($candidate in $candidates) {
+        if ([string]::IsNullOrWhiteSpace($candidate)) {
+            continue
+        }
+
+        $full = [System.IO.Path]::GetFullPath($candidate)
+        if (Test-Path $full) {
+            return $full
+        }
+    }
+
+    throw "Could not resolve source repo root for '$($Plugin.internalName)'. Set sourceRepoLocalPath in catalog.json, pass -SourceRepoRoot, or env $envName."
+}
+
+function Copy-WipTreeToSourceRepo {
+    param(
+        [Parameter(Mandatory)]
+        [string]$SourceRoot,
+        [Parameter(Mandatory)]
+        [string]$DestinationRoot,
+        [string[]]$SkipDirectoryNames = @("bin", "obj", "dist", ".vs", ".idea"),
+        [string[]]$SkipFileNames = @("SoundSetter.csproj", "SoundSetter.json", ".sync-complete"),
+        [switch]$WhatIf
+    )
+
+    if (-not (Test-Path $SourceRoot)) {
+        throw "Sync source path not found: $SourceRoot"
+    }
+
+    $copied = 0
+    Get-ChildItem -Path $SourceRoot -Recurse -Force -File | ForEach-Object {
+        $relative = $_.FullName.Substring($SourceRoot.Length).TrimStart("\", "/")
+        $parts = $relative -split "[\\/]"
+        if ($parts | Where-Object { $_ -in $SkipDirectoryNames }) {
+            return
+        }
+
+        if ($SkipFileNames -contains $_.Name) {
+            return
+        }
+
+        $target = Join-Path $DestinationRoot $relative
+        $targetDir = Split-Path $target -Parent
+        if (-not $WhatIf -and -not (Test-Path $targetDir)) {
+            New-Item -ItemType Directory -Force -Path $targetDir | Out-Null
+        }
+
+        if ($WhatIf) {
+            Write-Host "[WhatIf] $($_.FullName) -> $target"
+        } else {
+            Copy-Item -LiteralPath $_.FullName -Destination $target -Force
+            $copied++
+        }
+    }
+
+    return $copied
+}

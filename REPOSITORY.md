@@ -273,6 +273,8 @@ KKT-Catalog/
 | `sourceRepoUrl` | 是 | 完整 GitHub URL |
 | `catalogRoot` | 否 | 本机 KKT-Catalog 路径；`publish-release.ps1` 用于定位 `publish-plugin.ps1` |
 | `workInProgressPath` | 否 | 本地开发根目录，供 build 脚本定位源码（仅维护者机器） |
+| `sourceRepoLocalPath` | 否 | 本地 GitHub 源码仓克隆路径（如 `Release/SoundMixer`），供 `sync-source-repo.ps1` |
+| `syncRequiredFiles` | 否 | 同步后必须存在的相对路径列表（如黑名单相关源码） |
 | `projectSubPath` | 否 | 相对 `workInProgressPath` 的 csproj 目录 |
 | `publishGlobal` | 否 | 默认 `true`；仅国服时设为 `false`，只发布 `latest-cn.zip` |
 | `enabled` | 否 | 默认 `true`；`false` 时从 manifest 中排除（下架保留目录） |
@@ -405,7 +407,10 @@ WorkInProgress/<Plugin>/scripts/publish-release.ps1
         → 复制 zip → plugins/<PluginFolder>/
         → 复制 icon → images/<PluginFolder>/icon.png
         → 合并 pluginmaster.cn.json / pluginmaster.global.json
-    → git commit & push（仅 KKT-Catalog；源码仓按需另推）
+    → KKT-Catalog/scripts/sync-source-repo.ps1 -InternalName <Name>
+        → 将 WIP 源码同步到本地源码仓克隆（Release/<PluginFolder>/）
+        → 打印源码仓 git add / commit / push 提示
+    → git commit & push（Catalog；源码仓按提示另推）
 ```
 
 ### 8.2 发版前检查清单
