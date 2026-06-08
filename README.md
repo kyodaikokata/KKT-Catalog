@@ -30,8 +30,8 @@ After adding the URL, return to the plugin list and search by name to install or
 
 | 插件 Plugin | 版本 Version | CN | Global | 源码 Source |
 |-------------|--------------|:--:|:------:|-------------|
-| Heels Design Linker | **1.3.0.2** | ✅ | ✅ | [HeelsDesignLinker](https://github.com/kyodaikokata/HeelsDesignLinker) |
-| SoundMixer | **0.2.2.0** | ✅ | ✅ | [SoundMixer](https://github.com/kyodaikokata/SoundMixer) |
+| Heels Design Linker | **1.3.0.3** | ✅ | ✅ | [HeelsDesignLinker](https://github.com/kyodaikokata/HeelsDesignLinker) |
+| SoundMixer | **0.2.3.0** | ✅ | ✅ | [SoundMixer](https://github.com/kyodaikokata/SoundMixer) |
 
 ---
 
@@ -44,9 +44,9 @@ After adding the URL, return to the plugin list and search by name to install or
 > **不仅限于高跟鞋！** 除 SimpleHeels 高度外，还可根据 **当前渲染装备外观**（DrawObject）匹配规则；可组合高度与装备条件，自动执行 Glamourer、Penumbra、Moodles、Honorific、SoundMixer 等行动。  
 > **Not just for heels!** Match rules by **SimpleHeels height** and/or **rendered equipment** (DrawObject), then auto-apply Glamourer, Penumbra, Moodles, Honorific, or SoundMixer actions.
 
-**本版更新 · This release (1.3.0.2)**  
-- 中文：修复 Penumbra 在规则稳定时约每 20 秒重复 apply；DTR 状态栏显示当前高度与匹配规则（可点击打开设置，可在设置中关闭）。详见游戏内「更新履历」。  
-- English: Fix Penumbra re-applying every ~20s on stable rules; DTR bar shows height and matched rule (click to open settings, can disable in settings). See in-app changelog.
+**本版更新 · This release (1.3.0.3)**  
+- 中文：行动拖拽排序；Penumbra 默认使用 active Collection；DTR 重载修复。详见游戏内「更新履历」。  
+- English: Action drag reorder; Penumbra active Collection default; DTR reload fix. See in-app changelog.
 
 **中文**  
 在 **SimpleHeels 高度** 之外，还可按 **当前渲染装备**（如脚部是否为空、头部 ModelId、身体是否有装备等）触发规则，并自动应用 **Glamourer** 设计、**Penumbra** mod 选项，以及可选的 **Moodles**、**Honorific**、**SoundMixer**。  
@@ -68,15 +68,15 @@ Beyond **SimpleHeels height**, rules can match **rendered equipment** (e.g. empt
 |---|---|
 | **游戏内命令** | `/soundmixer` · `/smix` |
 
-**本版更新 · This release (0.2.2.0)**  
-- 中文：**安全模式**（可选）——默认骑乘时仍应用音量规则；若在外勤机等坐骑上崩溃，可在专家模式后开启安全模式，挂起骑乘期 hook。黑名单 Tab 支持手动拉取官方列表（10 秒冷却）；官方备注中英双语。详见游戏内更新日志。  
-- English: **Safe Mode** (optional)—volume rules apply while mounted by default; enable Safe Mode after Expert Mode to suspend hooks on mount if needed (e.g. Guideroid). Blacklist tab: manual official-list fetch (10s cooldown); bilingual official notes. See in-app changelog.
+**本版更新 · This release (0.2.3.0)**  
+- 中文：**PlaySound 默认禁用**（已确认 CTD）；修复 UI 一次性音效在分组调音量后静音；工具栏 **清除缓存**；外勤机 grace 期间保留 SetVolume/GetVolume，骑乘 BGM 可正常调节；分组树 UX 优化。详见游戏内更新日志。  
+- English: **PlaySound disabled by default** (confirmed CTD); fix UI one-shot SFX mute after group volume changes; toolbar **Clear Cache**; Guideroid grace keeps SetVolume/GetVolume for mount BGM; group tree UX. See in-app changelog.
 
 **中文**  
-按 **SCD 路径** 精细调节音效：分组与 Glob、预设、实时监听、BGM/环境音、**IPC 临时覆盖**、可拖动 UI 布局（0–200% 线性增益，专家模式最高约 350%）。**黑名单** Tab：玩家自定义规则 + 官方只读列表（关键词 / 路径 / Glob）；**安全模式** 为可选项，用于骑乘期稳定性保护。
+按 **SCD 路径** 精细调节音效：分组与 Glob、预设、实时监听、黑名单、BGM/环境音、**IPC 临时覆盖**、调试页、可拖动 UI（0–200% 增益，专家模式 350%）。PlaySound 默认关闭；可选 **安全模式** 用于骑乘稳定性。
 
 **English**  
-Per-**SCD-path** volume mixing with groups, Glob patterns, presets, live monitor, BGM/ambient, **IPC temporary overrides**, and resizable UI layout (0–200% linear gain; Expert Mode up to ~350%). **Blacklist** tab: user rules + read-only official list (keyword / path / Glob); optional **Safe Mode** for mount-transition stability.
+Per-**SCD-path** volume mixing with groups, Glob, presets, live monitor, blacklist, BGM/ambient, **IPC overrides**, debug hooks, resizable UI (0–350% gain). PlaySound off by default; optional **Safe Mode** for mount stability.
 
 **反馈 / Feedback：** 功能、Bug、建议请提交至 **[SoundMixer Issues](https://github.com/kyodaikokata/SoundMixer/issues)**（勿在本 Catalog 仓库开 Issue）。  
 Report features, bugs, or suggestions at **[SoundMixer Issues](https://github.com/kyodaikokata/SoundMixer/issues)** — **not** in this catalog repo.
