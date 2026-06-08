@@ -31,7 +31,7 @@ After adding the URL, return to the plugin list and search by name to install or
 | 插件 Plugin | 版本 Version | CN | Global | 源码 Source |
 |-------------|--------------|:--:|:------:|-------------|
 | Heels Design Linker | **1.3.0.4** | ✅ | ✅ | [HeelsDesignLinker](https://github.com/kyodaikokata/HeelsDesignLinker) |
-| SoundMixer | **0.2.3.0** | ✅ | ✅ | [SoundMixer](https://github.com/kyodaikokata/SoundMixer) |
+| SoundMixer | **0.2.3.1** | ✅ | ✅ | [SoundMixer](https://github.com/kyodaikokata/SoundMixer) |
 
 ---
 
@@ -68,15 +68,15 @@ Beyond **SimpleHeels height**, rules can match **rendered equipment** (e.g. empt
 |---|---|
 | **游戏内命令** | `/soundmixer` · `/smix` |
 
-**本版更新 · This release (0.2.3.0)**  
-- 中文：**PlaySound 默认禁用**（已确认 CTD）；修复 UI 一次性音效在分组调音量后静音；工具栏 **清除缓存**；外勤机 grace 期间保留 SetVolume/GetVolume，骑乘 BGM 可正常调节；分组树 UX 优化。详见游戏内更新日志。  
-- English: **PlaySound disabled by default** (confirmed CTD); fix UI one-shot SFX mute after group volume changes; toolbar **Clear Cache**; Guideroid grace keeps SetVolume/GetVolume for mount BGM; group tree UX. See in-app changelog.
+**本版更新 · This release (0.2.3.1)**  
+- 中文：**始终安全路径**（移除安全模式）；修复加载瞬间 CTD；嵌套脚步声子组正确叠乘；SoundEnforcement 与监听同源。详见游戏内更新日志。  
+- English: **Safe path always on** (Safe Mode removed); fix load-time CTD; nested footstep child groups stack correctly; unified SoundEnforcement. See in-app changelog.
 
 **中文**  
-按 **SCD 路径** 精细调节音效：分组与 Glob、预设、实时监听、黑名单、BGM/环境音、**IPC 临时覆盖**、调试页、可拖动 UI（0–200% 增益，专家模式 350%）。PlaySound 默认关闭；可选 **安全模式** 用于骑乘稳定性。
+按 **SCD 路径** 精细调节音效：分组与 Glob、预设、实时监听、黑名单、BGM/环境音、**IPC 临时覆盖**、调试页、可拖动 UI（0–200% 增益，专家模式 350%）。PlaySound 默认关闭；路径解析始终安全（不调用 GetFileName）。
 
 **English**  
-Per-**SCD-path** volume mixing with groups, Glob, presets, live monitor, blacklist, BGM/ambient, **IPC overrides**, debug hooks, resizable UI (0–350% gain). PlaySound off by default; optional **Safe Mode** for mount stability.
+Per-**SCD-path** volume mixing with groups, Glob, presets, live monitor, blacklist, BGM/ambient, **IPC overrides**, debug hooks, resizable UI (0–350% gain). PlaySound off by default; always safe path resolve (no GetFileName).
 
 **反馈 / Feedback：** 功能、Bug、建议请提交至 **[SoundMixer Issues](https://github.com/kyodaikokata/SoundMixer/issues)**（勿在本 Catalog 仓库开 Issue）。  
 Report features, bugs, or suggestions at **[SoundMixer Issues](https://github.com/kyodaikokata/SoundMixer/issues)** — **not** in this catalog repo.
