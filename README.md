@@ -31,7 +31,7 @@ After adding the URL, return to the plugin list and search by name to install or
 | 插件 Plugin | 版本 Version | CN | Global | 源码 Source |
 |-------------|--------------|:--:|:------:|-------------|
 | Heels Design Linker | **1.3.0.4** | ✅ | ✅ | [HeelsDesignLinker](https://github.com/kyodaikokata/HeelsDesignLinker) |
-| SoundMixer | **0.2.3.1** | ✅ | ✅ | [SoundMixer](https://github.com/kyodaikokata/SoundMixer) |
+| SoundMixer | **0.2.3.2** | ✅ | ✅ | [SoundMixer](https://github.com/kyodaikokata/SoundMixer) |
 
 ---
 
@@ -68,9 +68,9 @@ Beyond **SimpleHeels height**, rules can match **rendered equipment** (e.g. empt
 |---|---|
 | **游戏内命令** | `/soundmixer` · `/smix` |
 
-**本版更新 · This release (0.2.3.1)**  
-- 中文：**始终安全路径**（移除安全模式）；修复加载瞬间 CTD；嵌套脚步声子组正确叠乘；SoundEnforcement 与监听同源。详见游戏内更新日志。  
-- English: **Safe path always on** (Safe Mode removed); fix load-time CTD; nested footstep child groups stack correctly; unified SoundEnforcement. See in-app changelog.
+**本版更新 · This release (0.2.3.2)**  
+- 中文：修复 **mod 音乐** 短/长路径分裂（自动路径别名）；修复 >100% 音量放大基准污染；强制刷新与调试页极限音量优化。详见游戏内更新日志。  
+- English: Fix **mod music** short/full path split (auto alias); fix >100% volume boost baseline; enforcement refresh and extreme volume debug. See in-app changelog.
 
 **中文**  
 按 **SCD 路径** 精细调节音效：分组与 Glob、预设、实时监听、黑名单、BGM/环境音、**IPC 临时覆盖**、调试页、可拖动 UI（0–200% 增益，专家模式 350%）。PlaySound 默认关闭；路径解析始终安全（不调用 GetFileName）。
