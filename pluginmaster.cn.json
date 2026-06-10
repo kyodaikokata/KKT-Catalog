@@ -61,9 +61,9 @@
                          "other"
                      ],
     "DalamudApiLevel":  15,
-    "AssemblyVersion":  "1.4.2.0",
-    "Changelog":  "1.4.2.0: 规则 SFW 模式参与开关。详见游戏内更新履历。",
-    "LastUpdate":  "1781079519",
+    "AssemblyVersion":  "1.4.2.1",
+    "Changelog":  "1.4.2.1: 重启/登录后命中未变则跳过基准与规则 re-apply。详见游戏内更新履历。",
+    "LastUpdate":  "1781098309",
     "RepoUrl":  "https://github.com/kyodaikokata/HeelsDesignLinker",
     "DownloadLinkInstall":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/plugins/HeelsDesignLinker/latest-cn.zip",
     "DownloadLinkUpdate":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/plugins/HeelsDesignLinker/latest-cn.zip",
