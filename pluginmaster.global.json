@@ -19,9 +19,9 @@
                          "sound"
                      ],
     "DalamudApiLevel":  15,
-    "AssemblyVersion":  "0.2.3.4",
+    "AssemblyVersion":  "0.2.3.7",
     "Changelog":  "0.2.3.2: Fix mod music path alias and volume boost baseline; \u003e100% enforcement; extreme volume debug. See in-app changelog.",
-    "LastUpdate":  "1781117055",
+    "LastUpdate":  "1781269380",
     "RepoUrl":  "https://github.com/kyodaikokata/SoundMixer",
     "DownloadLinkInstall":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/plugins/SoundMixer/latest-global.zip",
     "DownloadLinkUpdate":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/plugins/SoundMixer/latest-global.zip",
@@ -61,9 +61,9 @@
                          "other"
                      ],
     "DalamudApiLevel":  15,
-    "AssemblyVersion":  "1.4.2.19",
+    "AssemblyVersion":  "1.4.2.23",
     "Changelog":  "1.4.2.7: Revert baseline Moodle ownership; fix phantom Moodle actions on plugin update. See in-app changelog.",
-    "LastUpdate":  "1781166055",
+    "LastUpdate":  "1781269394",
     "RepoUrl":  "https://github.com/kyodaikokata/HeelsDesignLinker",
     "DownloadLinkInstall":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/plugins/HeelsDesignLinker/latest-global.zip",
     "DownloadLinkUpdate":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/plugins/HeelsDesignLinker/latest-global.zip",

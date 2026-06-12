@@ -19,9 +19,9 @@
                          "sound"
                      ],
     "DalamudApiLevel":  15,
-    "AssemblyVersion":  "0.2.3.4",
+    "AssemblyVersion":  "0.2.3.7",
     "Changelog":  "0.2.3.2: 修复 mod 音乐路径分裂与音量放大基准；\u003e100% 强制刷新优化；调试页极限音量。详见游戏内更新日志。",
-    "LastUpdate":  "1781117055",
+    "LastUpdate":  "1781269380",
     "RepoUrl":  "https://github.com/kyodaikokata/SoundMixer",
     "DownloadLinkInstall":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/plugins/SoundMixer/latest-cn.zip",
     "DownloadLinkUpdate":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/plugins/SoundMixer/latest-cn.zip",
@@ -61,9 +61,9 @@
                          "other"
                      ],
     "DalamudApiLevel":  15,
-    "AssemblyVersion":  "1.4.2.19",
+    "AssemblyVersion":  "1.4.2.23",
     "Changelog":  "1.4.2.7: 回退基准 Moodles 独占逻辑；修复更新插件凭空多出 Moodles 行动。详见游戏内更新履历。",
-    "LastUpdate":  "1781166055",
+    "LastUpdate":  "1781269394",
     "RepoUrl":  "https://github.com/kyodaikokata/HeelsDesignLinker",
     "DownloadLinkInstall":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/plugins/HeelsDesignLinker/latest-cn.zip",
     "DownloadLinkUpdate":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/plugins/HeelsDesignLinker/latest-cn.zip",
