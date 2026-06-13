@@ -31,7 +31,7 @@ After adding the URL, return to the plugin list and search by name to install or
 | 插件 Plugin | 版本 Version | CN | Global | 源码 Source |
 |-------------|--------------|:--:|:------:|-------------|
 | Heels Design Linker | **1.4.2.23** | ✅ | ✅ | [HeelsDesignLinker](https://github.com/kyodaikokata/HeelsDesignLinker) |
-| SoundMixer | **0.2.3.7** | ✅ | ✅ | [SoundMixer](https://github.com/kyodaikokata/SoundMixer) |
+| SoundMixer | **0.2.3.8** | ✅ | ✅ | [SoundMixer](https://github.com/kyodaikokata/SoundMixer) |
 
 ---
 
@@ -68,7 +68,7 @@ Beyond **SimpleHeels height**, rules can match **rendered equipment** (e.g. empt
 |---|---|
 | **游戏内命令** | `/soundmixer` · `/smix` |
 
-**本版更新 · This release (0.2.3.7)**  
+**本版更新 · This release (0.2.3.8)**  
 - 中文：修复 **mod 音乐** 短/长路径分裂（自动路径别名）；修复 >100% 音量放大基准污染；强制刷新与调试页极限音量优化。详见游戏内更新日志。  
 - English: Fix **mod music** short/full path split (auto alias); fix >100% volume boost baseline; enforcement refresh and extreme volume debug. See in-app changelog.
 
