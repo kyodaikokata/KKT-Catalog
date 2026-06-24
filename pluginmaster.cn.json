@@ -61,9 +61,9 @@
                          "other"
                      ],
     "DalamudApiLevel":  15,
-    "AssemblyVersion":  "1.4.2.25",
+    "AssemblyVersion":  "1.4.2.26",
     "Changelog":  "1.4.2.7: 回退基准 Moodles 独占逻辑；修复更新插件凭空多出 Moodles 行动。详见游戏内更新履历。",
-    "LastUpdate":  "1781632008",
+    "LastUpdate":  "1782275737",
     "RepoUrl":  "https://github.com/kyodaikokata/HeelsDesignLinker",
     "DownloadLinkInstall":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/plugins/HeelsDesignLinker/latest-cn.zip",
     "DownloadLinkUpdate":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/plugins/HeelsDesignLinker/latest-cn.zip",
