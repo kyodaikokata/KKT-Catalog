@@ -30,7 +30,7 @@ After adding the URL, return to the plugin list and search by name to install or
 
 | 插件 Plugin | 版本 Version | CN | Global | 源码 Source |
 |-------------|--------------|:--:|:------:|-------------|
-| Heels Design Linker | **1.4.2.26** | ✅ | ✅ | [HeelsDesignLinker](https://github.com/kyodaikokata/HeelsDesignLinker) |
+| Heels Design Linker | **1.4.2.28** | ✅ | ✅ | [HeelsDesignLinker](https://github.com/kyodaikokata/HeelsDesignLinker) |
 | SoundMixer | **0.2.3.8** | ✅ | ✅ | [SoundMixer](https://github.com/kyodaikokata/SoundMixer) |
 
 ---
@@ -44,7 +44,7 @@ After adding the URL, return to the plugin list and search by name to install or
 > **不仅限于高跟鞋！** 除 SimpleHeels 高度外，还可根据 **当前渲染装备外观**（DrawObject）匹配规则；可组合高度与装备条件，自动执行 Glamourer、Penumbra、Moodles、Honorific、SoundMixer 等行动。  
 > **Not just for heels!** Match rules by **SimpleHeels height** and/or **rendered equipment** (DrawObject), then auto-apply Glamourer, Penumbra, Moodles, Honorific, or SoundMixer actions.
 
-**本版更新 · This release (1.4.2.26)**  
+**本版更新 · This release (1.4.2.28)**  
 - 中文：**全局 SFW 模式**（独立标签页，Penumbra 临时层 -1210）；主界面与 DTR 一键切换；`/hdl sfw` / `/hdl nsfw`。规则现在支持分组。详见游戏内「更新履历」。  
 - English: **Global SFW mode** (dedicated tab, Penumbra temp layer -1210); main panel and DTR toggle; `/hdl sfw` / `/hdl nsfw`. Rules now can be grouped See in-app changelog.
 

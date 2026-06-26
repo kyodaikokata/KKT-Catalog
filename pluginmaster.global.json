@@ -61,9 +61,9 @@
                          "other"
                      ],
     "DalamudApiLevel":  15,
-    "AssemblyVersion":  "1.4.2.26",
+    "AssemblyVersion":  "1.4.2.28",
     "Changelog":  "1.4.2.7: Revert baseline Moodle ownership; fix phantom Moodle actions on plugin update. See in-app changelog.",
-    "LastUpdate":  "1782275737",
+    "LastUpdate":  "1782496431",
     "RepoUrl":  "https://github.com/kyodaikokata/HeelsDesignLinker",
     "DownloadLinkInstall":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/plugins/HeelsDesignLinker/latest-global.zip",
     "DownloadLinkUpdate":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/plugins/HeelsDesignLinker/latest-global.zip",
