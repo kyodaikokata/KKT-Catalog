@@ -59,9 +59,9 @@
                          "sound"
                      ],
     "DalamudApiLevel":  15,
-    "AssemblyVersion":  "0.2.3.10",
+    "AssemblyVersion":  "0.2.3.11",
     "Changelog":  "0.2.3.2: Fix mod music path alias and volume boost baseline; \u003e100% enforcement; extreme volume debug. See in-app changelog.",
-    "LastUpdate":  "1783704095",
+    "LastUpdate":  "1783705383",
     "RepoUrl":  "https://github.com/kyodaikokata/SoundMixer",
     "DownloadLinkInstall":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/plugins/SoundMixer/latest-global.zip",
     "DownloadLinkUpdate":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/plugins/SoundMixer/latest-global.zip",

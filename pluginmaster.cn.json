@@ -59,9 +59,9 @@
                          "sound"
                      ],
     "DalamudApiLevel":  15,
-    "AssemblyVersion":  "0.2.3.10",
+    "AssemblyVersion":  "0.2.3.11",
     "Changelog":  "0.2.3.2: 修复 mod 音乐路径分裂与音量放大基准；\u003e100% 强制刷新优化；调试页极限音量。详见游戏内更新日志。",
-    "LastUpdate":  "1783704095",
+    "LastUpdate":  "1783705383",
     "RepoUrl":  "https://github.com/kyodaikokata/SoundMixer",
     "DownloadLinkInstall":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/plugins/SoundMixer/latest-cn.zip",
     "DownloadLinkUpdate":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/plugins/SoundMixer/latest-cn.zip",
