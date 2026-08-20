@@ -31,7 +31,7 @@ After adding the URL, return to the plugin list and search by name to install or
 | 插件 Plugin | 版本 Version | CN | Global | 源码 Source |
 |-------------|--------------|:--:|:------:|-------------|
 | Heels Design Linker | **1.4.2.30** | ✅ | ✅ | [HeelsDesignLinker](https://github.com/kyodaikokata/HeelsDesignLinker) |
-| SoundMixer | **0.2.3.11** | ✅ | ✅ | [SoundMixer](https://github.com/kyodaikokata/SoundMixer) |
+| SoundMixer | **0.2.3.12** | ✅ | ✅ | [SoundMixer](https://github.com/kyodaikokata/SoundMixer) |
 
 ---
 
@@ -45,15 +45,15 @@ After adding the URL, return to the plugin list and search by name to install or
 > **Not just for heels!** Match rules by **SimpleHeels height** and/or **rendered equipment** (DrawObject), then auto-apply Glamourer, Penumbra, Moodles, Honorific, or SoundMixer actions.
 
 **本版更新 · This release (1.4.2.30)**  
-- 中文：**全局 SFW 模式**（独立标签页，Penumbra 临时层 -1210）；主界面与 DTR 一键切换；`/hdl sfw` / `/hdl nsfw`。规则现在支持分组。详见游戏内「更新履历」。  
-- English: **Global SFW mode** (dedicated tab, Penumbra temp layer -1210); main panel and DTR toggle; `/hdl sfw` / `/hdl nsfw`. Rules now can be grouped See in-app changelog.
+- 中文：修复 Glamourer 基准「自动」误执行 `/glamour revert` 清除已应用外观；基准改为禁用=不操作、仅手动启用时 apply；新扫描默认手动+禁用。另含全局 SFW、规则分组等。详见游戏内「更新履历」。  
+- English: Fix Glamourer baseline Auto wrongly running `/glamour revert`; baseline is disabled=no-op, apply only when manually enabled; new scans default Manual+Disabled. Also includes global SFW, rule groups, and more. See in-app changelog.
 
 **中文**  
-在 **SimpleHeels 高度** 之外，还可按 **当前渲染装备**（如脚部是否为空、头部 ModelId、身体是否有装备等）触发规则，并自动应用 **Glamourer** 设计、**Penumbra** mod 选项，以及可选的 **Moodles**、**Honorific**、**SoundMixer**。  
+在 **SimpleHeels 高度** 之外，还可按 **当前渲染装备**（如脚部是否为空、头部 ModelId、身体是否有装备等）触发规则，并自动应用 **Glamourer** 设计、**Penumbra** mod 选项，以及可选的 **Moodles**、**Honorific**、**SoundMixer**。支持规则分组与 **全局 SFW 模式**。  
 **强烈推荐：** SimpleHeels、Glamourer、Penumbra。
 
 **English**  
-Beyond **SimpleHeels height**, rules can match **rendered equipment** (e.g. empty feet, specific head ModelId, body gear) and auto-apply **Glamourer**, **Penumbra**, and optional **Moodles**, **Honorific**, or **SoundMixer**.  
+Beyond **SimpleHeels height**, rules can match **rendered equipment** (e.g. empty feet, specific head ModelId, body gear) and auto-apply **Glamourer**, **Penumbra**, and optional **Moodles**, **Honorific**, or **SoundMixer**. Supports rule groups and **global SFW mode**.  
 **Strongly recommended:** SimpleHeels, Glamourer, and Penumbra.
 
 **反馈 / Feedback：** [HeelsDesignLinker Issues](https://github.com/kyodaikokata/HeelsDesignLinker/issues)
@@ -68,15 +68,15 @@ Beyond **SimpleHeels height**, rules can match **rendered equipment** (e.g. empt
 |---|---|
 | **游戏内命令** | `/soundmixer` · `/smix` |
 
-**本版更新 · This release (0.2.3.11)**  
-- 中文：修复 **mod 音乐** 短/长路径分裂（自动路径别名）；修复 >100% 音量放大基准污染；强制刷新与调试页极限音量优化。详见游戏内更新日志。  
-- English: Fix **mod music** short/full path split (auto alias); fix >100% volume boost baseline; enforcement refresh and extreme volume debug. See in-app changelog.
+**本版更新 · This release (0.2.3.12)**  
+- 中文：修复脱战/进退剧情/BGM 切换后旧曲残留；自动 enforcement 尊重原生淡出；静音 BGM 不再被每帧拉回。另含副本/探索禁用、发射体范围过滤等。详见游戏内更新日志。  
+- English: Fix BGM lingering after combat/cutscene/music swaps; auto-enforce respects native fade; silenced BGM is not revived. Also duty/exploration disable and emitter-scope filters. See in-app changelog.
 
 **中文**  
-按 **SCD 路径** 精细调节音效：分组与 Glob、预设、实时监听、黑名单、BGM/环境音、**IPC 临时覆盖**、调试页、可拖动 UI（0–200% 增益，专家模式 350%）。PlaySound 默认关闭；路径解析始终安全（不调用 GetFileName）。
+按 **SCD 路径** 精细调节音效：分组与 Glob、预设、实时监听、黑名单、BGM/环境音、**IPC 临时覆盖**、调试页、可拖动 UI（0–200% 增益，专家模式 350%）。PlaySound 默认关闭；路径解析始终安全（不调用 GetFileName）。支持发射体范围与副本内禁用。
 
 **English**  
-Per-**SCD-path** volume mixing with groups, Glob, presets, live monitor, blacklist, BGM/ambient, **IPC overrides**, debug hooks, resizable UI (0–350% gain). PlaySound off by default; always safe path resolve (no GetFileName).
+Per-**SCD-path** volume mixing with groups, Glob, presets, live monitor, blacklist, BGM/ambient, **IPC overrides**, debug hooks, resizable UI (0–350% gain). PlaySound off by default; always safe path resolve (no GetFileName). Supports emitter scope and duty disable options.
 
 **反馈 / Feedback：** 功能、Bug、建议请提交至 **[SoundMixer Issues](https://github.com/kyodaikokata/SoundMixer/issues)**（勿在本 Catalog 仓库开 Issue）。  
 Report features, bugs, or suggestions at **[SoundMixer Issues](https://github.com/kyodaikokata/SoundMixer/issues)** — **not** in this catalog repo.
