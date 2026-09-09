@@ -30,7 +30,7 @@ After adding the URL, return to the plugin list and search by name to install or
 
 | 插件 Plugin | 版本 Version | CN | Global | 源码 Source |
 |-------------|--------------|:--:|:------:|-------------|
-| Heels Design Linker | **1.4.2.32** | ✅ | ✅ | [HeelsDesignLinker](https://github.com/kyodaikokata/HeelsDesignLinker) |
+| Heels Design Linker | **1.4.2.36** | ✅ | ✅ | [HeelsDesignLinker](https://github.com/kyodaikokata/HeelsDesignLinker) |
 | SoundMixer | **0.2.3.12** | ✅ | ✅ | [SoundMixer](https://github.com/kyodaikokata/SoundMixer) |
 
 ---
@@ -44,9 +44,9 @@ After adding the URL, return to the plugin list and search by name to install or
 > **不仅限于高跟鞋！** 除 SimpleHeels 高度外，还可根据 **当前渲染装备外观**（DrawObject）匹配规则；可组合高度与装备条件，自动执行 Glamourer、Penumbra、Moodles、Honorific、SoundMixer 等行动。  
 > **Not just for heels!** Match rules by **SimpleHeels height** and/or **rendered equipment** (DrawObject), then auto-apply Glamourer, Penumbra, Moodles, Honorific, or SoundMixer actions.
 
-**本版更新 · This release (1.4.2.32)**  
-- 中文：规则页新增开关（默认开）——主手/副手变化时清除 Glamourer 主副手覆写并重新匹配规则（缓解驯兽师等换职残留武器）。1.4.2.31 起已修复换职后副手盾不显示。详见游戏内「更新履历」。  
-- English: Rules-tab option (default on)—clear Glamourer main/off-hand overrides on weapon change and rematch (helps Beastmaster job-switch residue). 1.4.2.31 fixed missing off-hand shield after job switch. See in-app changelog.
+**本版更新 · This release (1.4.2.36)**  
+- 中文：换职武器同步在 Revert 到游戏实装后追加 **RevertToAutomation**，重新执行 Glamourer 自动化（无自动化时 NothingDone）。详见游戏内「更新履历」。  
+- English: After Revert to game gear on job switch, call **RevertToAutomation** to re-run Glamourer automations (NothingDone if none). See in-app changelog.
 
 **中文**  
 在 **SimpleHeels 高度** 之外，还可按 **当前渲染装备**（如脚部是否为空、头部 ModelId、身体是否有装备等）触发规则，并自动应用 **Glamourer** 设计、**Penumbra** mod 选项，以及可选的 **Moodles**、**Honorific**、**SoundMixer**。支持规则分组与 **全局 SFW 模式**。  

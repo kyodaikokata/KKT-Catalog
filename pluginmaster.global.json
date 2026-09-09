@@ -61,9 +61,9 @@
                          "other"
                      ],
     "DalamudApiLevel":  15,
-    "AssemblyVersion":  "1.4.2.32",
-    "Changelog":  "1.4.2.32: Clear Glamourer main/off-hand overrides on weapon change and rematch (default on). See in-app changelog.",
-    "LastUpdate":  "1788956225",
+    "AssemblyVersion":  "1.4.2.36",
+    "Changelog":  "1.4.2.36: After Revert to game gear, call RevertToAutomation. See in-app changelog.",
+    "LastUpdate":  "1788958035",
     "RepoUrl":  "https://github.com/kyodaikokata/HeelsDesignLinker",
     "DownloadLinkInstall":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/plugins/HeelsDesignLinker/latest-global.zip",
     "DownloadLinkUpdate":  "https://raw.githubusercontent.com/kyodaikokata/KKT-Catalog/main/plugins/HeelsDesignLinker/latest-global.zip",
