@@ -30,7 +30,7 @@ After adding the URL, return to the plugin list and search by name to install or
 
 | 插件 Plugin | 版本 Version | CN | Global | 源码 Source |
 |-------------|--------------|:--:|:------:|-------------|
-| Heels Design Linker | **1.4.2.30** | ✅ | ✅ | [HeelsDesignLinker](https://github.com/kyodaikokata/HeelsDesignLinker) |
+| Heels Design Linker | **1.4.2.31** | ✅ | ✅ | [HeelsDesignLinker](https://github.com/kyodaikokata/HeelsDesignLinker) |
 | SoundMixer | **0.2.3.12** | ✅ | ✅ | [SoundMixer](https://github.com/kyodaikokata/SoundMixer) |
 
 ---
@@ -44,9 +44,9 @@ After adding the URL, return to the plugin list and search by name to install or
 > **不仅限于高跟鞋！** 除 SimpleHeels 高度外，还可根据 **当前渲染装备外观**（DrawObject）匹配规则；可组合高度与装备条件，自动执行 Glamourer、Penumbra、Moodles、Honorific、SoundMixer 等行动。  
 > **Not just for heels!** Match rules by **SimpleHeels height** and/or **rendered equipment** (DrawObject), then auto-apply Glamourer, Penumbra, Moodles, Honorific, or SoundMixer actions.
 
-**本版更新 · This release (1.4.2.30)**  
-- 中文：修复 Glamourer 基准「自动」误执行 `/glamour revert` 清除已应用外观；基准改为禁用=不操作、仅手动启用时 apply；新扫描默认手动+禁用。另含全局 SFW、规则分组等。详见游戏内「更新履历」。  
-- English: Fix Glamourer baseline Auto wrongly running `/glamour revert`; baseline is disabled=no-op, apply only when manually enabled; new scans default Manual+Disabled. Also includes global SFW, rule groups, and more. See in-app changelog.
+**本版更新 · This release (1.4.2.31)**  
+- 中文：修复 Glamourer 基准「自动」误执行 `/glamour revert` 清除已应用外观；基准改为禁用=不操作、仅手动启用时 apply；新扫描默认手动+禁用。另含全局 SFW、规则分组，状态储存bug修复等，详见游戏内「更新履历」。  
+- English: Fix Glamourer baseline Auto wrongly running `/glamour revert`; baseline is disabled=no-op, apply only when manually enabled; new scans default Manual+Disabled. Also includes global SFW, rule groups, fixed a status fingerprint bug, and more. See in-app changelog.
 
 **中文**  
 在 **SimpleHeels 高度** 之外，还可按 **当前渲染装备**（如脚部是否为空、头部 ModelId、身体是否有装备等）触发规则，并自动应用 **Glamourer** 设计、**Penumbra** mod 选项，以及可选的 **Moodles**、**Honorific**、**SoundMixer**。支持规则分组与 **全局 SFW 模式**。  
